@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterDonatur"
+    android:background="@color/secondgreen">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="hideKeyboardOnLayout">
+
+        <TextView
+            android:id="@+id/btnBackRegisterDonatur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:drawableStart="@drawable/ic_back_ios"
+            android:background="@drawable/bg_btnripple"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/signUpDonatur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:drawableEnd="@drawable/ic_done"
+            android:background="@drawable/bg_btnripple"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedRegister"
+            android:layout_below="@+id/btnBackRegisterDonatur"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <RelativeLayout
+                android:id="@+id/back2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/mhs_bg"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:onClick="hideKeyboardOnLayout">
+
+                <!-- Button SelectPhoto -->
+                <LinearLayout
+                    android:id="@+id/LayoutSelectPhoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    android:layout_centerHorizontal="true">
+
+                    <Button
+                        android:id="@+id/selectPhotoDonatur"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/ic_camera_donatur"
+                        android:textColor="#FFFFFF"
+                        android:foreground="?android:attr/selectableItemBackground"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageViewDonatur"
+                    android:layout_below="@+id/LayoutSelectPhoto"
+                    android:layout_width="150dp"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:visibility="gone"
+                    android:layout_centerHorizontal="true"/>
+                <TextView
+                    android:id="@+id/tv_titleimage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageViewDonatur"
+                    android:text="Tambahkan Foto Profil Anda"
+                    android:gravity="center"/>
+
+                <!--START EDIT TEXT Username-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etUsernameDonaturLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="35dp"
+                    android:paddingEnd="35dp"
+                    android:layout_below="@+id/tv_titleimage"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etUsernameDonatur"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"
+                        android:drawableStart="@drawable/ic__trending_flat_seagreen_24"
+                        android:drawablePadding="20dp"
+                        android:hint="Username Donatur Untuk Login"
+                        android:autoLink="none"
+                        android:linksClickable="false"
+                        android:importantForAutofill="no"
+                        android:inputType="text"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <!--END OF EDIT TEXT-->
+
+                <!--START EDIT TEXT Password-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_below="@+id/etUsernameDonaturLayout"
+                    android:id="@+id/etPasswordDonaturLayout"
+                    android:layout_width="match_parent"
+                    android:paddingStart="35dp"
+                    android:paddingEnd="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    app:passwordToggleEnabled="true"
+                    android:layout_marginBottom="20dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPasswordDonatur"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic__trending_flat_seagreen_24"
+                        android:drawablePadding="20dp"
+                        android:textSize="17sp"
+                        android:hint="@string/ETpasswordhint"
+                        android:autoLink="none"
+                        android:linksClickable="false"
+                        android:importantForAutofill="no"
+                        android:inputType="textPassword"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <!--END OF EDIT TEXT-->
+
+                <!--START EDIT TEXT NamaDonatur-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_below="@+id/etPasswordDonaturLayout"
+                    android:id="@+id/etNamaDonaturLayout"
+                    android:layout_width="match_parent"
+                    android:paddingStart="35dp"
+                    android:paddingEnd="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etNamaDonatur"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic__trending_flat_seagreen_24"
+                        android:drawablePadding="20dp"
+                        android:textSize="17sp"
+                        android:hint="Nama Lengkap Donatur"
+                        android:autoLink="none"
+                        android:linksClickable="false"
+                        android:importantForAutofill="no"
+                        android:inputType="textCapWords"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <!--END OF EDIT TEXT-->
+
+                <!--START EDIT TEXT PekerjaanDonatur-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_below="@+id/etNamaDonaturLayout"
+                    android:id="@+id/etPekerjaanDonaturLayout"
+                    android:layout_width="match_parent"
+                    android:paddingStart="35dp"
+                    android:paddingEnd="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPekerjaanDonatur"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic__trending_flat_seagreen_24"
+                        android:drawablePadding="20dp"
+                        android:textSize="17sp"
+                        android:hint="Pekerjaan Donatur"
+                        android:autoLink="none"
+                        android:linksClickable="false"
+                        android:importantForAutofill="no"
+                        android:inputType="textCapWords"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <!--END OF EDIT TEXT-->
+
+                <!--START EDIT TEXT TempatLahir-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_below="@+id/etPekerjaanDonaturLayout"
+                    android:id="@+id/etTempatLahirLayout"
+                    android:layout_width="match_parent"
+                    android:paddingStart="35dp"
+                    android:paddingEnd="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTempatLahirDonatur"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic__trending_flat_seagreen_24"
+                        android:drawablePadding="20dp"
+                        android:textSize="17sp"
+                        android:hint="@string/ETtempatlahirhint"
+                        android:autoLink="none"
+                        android:linksClickable="false"
+                        android:importantForAutofill="no"
+                        android:inputType="textCapWords"
+                        android:layout_marginBottom="10dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <!--END OF EDIT TEXT-->
+
+                <LinearLayout
+                    android:id="@+id/LinearLayout2"
+                    android:layout_below="@+id/etTempatLahirLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="35dp"
+                    android:paddingEnd="35dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginBottom="20dp">
+
+                    <Button
+                        android:id="@+id/bt_datepicker"
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/et_bgdonatur"
+                        android:text="Pilih Tanggal"
+                        android:textColor="#80000000"
+                        android:textSize="9sp" />
+
+                    <TextView
+                        android:id="@+id/tv_dateresultDonatur"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="20dp"
+                        android:text="TANGGAL LAHIR"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LinearLayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:paddingStart="35dp"
+                    android:paddingEnd="35dp"
+                    android:layout_below="@id/LinearLayout2"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal"
+                    android:layout_marginBottom="20dp">
+                    <Spinner
+                        android:id="@+id/spinnerJKDonatur"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/android_dropdown_arrays"
+                        android:padding="5dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_jkresultDonatur"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="JENIS KELAMIN"
+                        android:layout_marginStart="20dp"/>
+
+                </LinearLayout>
+
+                <!--START EDIT TEXT-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_below="@+id/LinearLayout3"
+                    android:id="@+id/etEmailLayout"
+                    android:layout_width="match_parent"
+                    android:paddingStart="35dp"
+                    android:paddingEnd="35dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEmailDonatur"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic__trending_flat_seagreen_24"
+                        android:drawablePadding="20dp"
+                        android:textSize="17sp"
+                        android:hint="@string/ETemail"
+                        android:autoLink="none"
+                        android:linksClickable="false"
+                        android:importantForAutofill="no"
+                        android:inputType="textEmailAddress"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <!--END OF EDIT TEXT-->
+
+                <!--START EDIT TEXT-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_below="@+id/etEmailLayout"
+                    android:id="@+id/etNotelLayout"
+                    android:layout_width="match_parent"
+                    android:paddingStart="35dp"
+                    android:paddingEnd="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etNotelDonatur"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic__trending_flat_seagreen_24"
+                        android:drawablePadding="20dp"
+                        android:textSize="17sp"
+                        android:hint="@string/ETnotel"
+                        android:autoLink="none"
+                        android:linksClickable="false"
+                        android:importantForAutofill="no"
+                        android:inputType="phone"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <!--END OF EDIT TEXT-->
+
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

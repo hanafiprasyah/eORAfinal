@@ -1,0 +1,113 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId "com.example.eorafinal"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    //FirebaseConfig
+    implementation 'com.google.firebase:firebase-analytics:17.4.4'
+
+    implementation 'br.com.simplepass:loading-button-android:2.2.0'
+    implementation 'com.android.support:design:29.0.0'
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.0.6'
+    implementation 'com.android.support:cardview-v7:29.0.0'
+    implementation 'com.github.imtuann:FloatingActionButtonExpandable:1.1.2'
+    implementation 'com.muddzdev:styleabletoast:2.0.1'
+    implementation 'com.android.support:recyclerview-v7:29.0.0'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.72'
+
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+
+    //https://github.com/recruit-lifestyle/WaveSwipeRefreshLayout
+    implementation 'com.github.recruit-lifestyle:WaveSwipeRefreshLayout:1.6'
+
+    //SQLNetworking
+    implementation 'com.amitshekhar.android:android-networking:1.0.2'
+
+    //croppictures
+    implementation 'com.github.yalantis:ucrop:2.2.4'
+
+    //edittext
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+
+    //Volley
+    implementation 'com.android.volley:volley:1.1.1'
+
+    //clans FAB - https://github.com/Clans/FloatingActionButton
+    implementation 'com.github.clans:fab:1.6.4'
+
+    //FancyCustomToast from https://github.com/Shashank02051997/FancyToast-Android
+    implementation 'com.github.Shashank02051997:FancyToast-Android:0.1.6'
+
+    //Lottie
+    implementation 'com.airbnb.android:lottie:3.4.0'
+
+    //StepView from https://github.com/shuhart/StepView
+    implementation 'com.shuhart.stepview:stepview:1.5.1'
+
+    //animate from https://github.com/daimajia/AndroidViewAnimations
+    implementation 'com.android.support:support-compat:29.0.0'
+    implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
+
+    implementation 'com.github.faruktoptas:FancyShowCaseView:0.0.3'
+    implementation 'uk.co.samuelwall:material-tap-target-prompt:3.0.0'
+
+    implementation 'com.github.florent37:expansionpanel:1.2.4'
+
+    implementation 'com.github.jrvansuita:MaterialAbout:0.2.4'
+
+    implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
+
+    implementation 'net.gotev:uploadservice:2.1'
+
+    //RetrofitUpload
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+    //PDFloadFromServer
+    implementation 'es.voghdev.pdfviewpager:library:1.1.2'
+
+    implementation 'com.google.firebase:firebase-auth:19.3.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

@@ -1,0 +1,80 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    
+    <style name="AppTheme.CustomPopup">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+    <style name="AppTheme.TransparentStatusBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="windowActionBar">true</item>
+    </style>
+
+    <style name="ProgressBarMahasiswa" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/color3</item>
+        <item name="android:radius">80dp</item>
+        <item name="android:shape">rectangle</item>
+    </style>
+
+    <style name="ProgressBarDonatur" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/secondgreen</item>
+        <item name="android:radius">80dp</item>
+        <item name="android:shape">rectangle</item>
+    </style>
+
+    <style name="DialogThemeMahasiswa" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/color3</item>
+    </style>
+
+    <style name="DialogThemeDonatur" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/secondgreen</item>
+    </style>
+
+    <style name="CustomThemeMahasiswa" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/color3</item>
+        <item name="colorPrimary">@color/color3</item>
+    </style>
+
+    <style name="CustomThemeDonatur" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/secondgreen</item>
+        <item name="colorPrimary">@color/secondgreen</item>
+    </style>
+
+    <style name="Batas">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">?android:attr/listDivider</item>
+    </style>
+
+    <style name="DialogAnimationFadeIn" parent="@android:style/Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/DialogSlideIn</item>
+    </style>
+    <style name="DialogSlideIn">
+        <item name="android:windowEnterAnimation">@anim/falldown</item>
+        <item name="android:windowExitAnimation">@anim/slide_outta_right</item>
+    </style>
+
+    <style name="BackgroundFooter">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">#66000000</item>
+    </style>
+
+</resources>

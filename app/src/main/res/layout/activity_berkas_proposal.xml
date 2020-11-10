@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BerkasProposal"
+    android:orientation="vertical"
+    android:background="@color/ghostwhite"
+    android:onClick="hideKeyboardOnLayoutBerkasProposal">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarLiharDonatur"
+        android:layout_width="match_parent"
+        android:background="@android:color/transparent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="0dp">
+        <TextView
+            android:id="@+id/btnBacktoMhsHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/bg_btnripple"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:drawableStart="@drawable/ic_back_ios"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="5dp"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/tv_NIMforBerkas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textColor="@color/red"
+            android:gravity="center"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--KRS PDF-->
+            <LinearLayout
+                android:id="@+id/uploadKRS_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:weightSum="6"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="5"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="1. UPLOAD KARTU RENCANA STUDI (KRS)"/>
+                <ImageView
+                    android:id="@+id/info_uploadKRS"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_informationbublered12"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_marginTop="15dp">
+
+                <Button
+                    android:id="@+id/buttonChooseFileKRS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pilih File"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/et_bgmhs"/>
+
+                <EditText
+                    android:id="@+id/etNameKRS"
+                    android:hint="Pilih File PDF"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textSize="14sp"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"/>
+
+                <Button
+                    android:id="@+id/buttonUploadFileKRS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upload"
+                    android:enabled="false"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/et_bgmhs"/>
+
+            </LinearLayout>
+
+            <!--LHS PDF-->
+            <LinearLayout
+                android:id="@+id/uploadLHS_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:weightSum="6"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="5"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="2. UPLOAD LEMBAR HASIL STUDI (LHS)"/>
+                <ImageView
+                    android:id="@+id/info_LHS"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_informationbublered12"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/uploadLHS_sheet"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_marginTop="15dp"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/buttonChooseFileLHS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pilih File"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/et_bgmhs"/>
+
+                <EditText
+                    android:id="@+id/etNameLHS"
+                    android:hint="Pilih File PDF"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textSize="14sp"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"/>
+
+                <Button
+                    android:id="@+id/buttonUploadFileLHS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upload"
+                    android:enabled="false"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/et_bgmhs"/>
+
+            </LinearLayout>
+
+            <!--UKT PDF-->
+            <LinearLayout
+                android:id="@+id/uploadUKT_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:weightSum="6"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="5"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="3. UPLOAD UANG KULIAH TUNGGAL (UKT)"/>
+                <ImageView
+                    android:id="@+id/info_UKT"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_informationbublered12"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/uploadUKT_sheet"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_marginTop="15dp"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/buttonChooseFileUKT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pilih File"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/et_bgmhs"/>
+
+                <EditText
+                    android:id="@+id/etNameUKT"
+                    android:hint="Pilih File PDF"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textSize="14sp"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"/>
+
+                <Button
+                    android:id="@+id/buttonUploadFileUKT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upload"
+                    android:enabled="false"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/et_bgmhs"/>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/separatorBerkas"
+                style="@style/Batas"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone"/>
+
+            <!--Prestasi PDF-->
+            <TextView
+                android:id="@+id/tv_opsional"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="*OPSIONAL (JIKA ADA)"
+                android:textSize="14sp"
+                android:textColor="@color/color5"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:visibility="gone"/>
+            <LinearLayout
+                android:id="@+id/uploadPrestasi1_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:weightSum="6"
+                android:orientation="horizontal"
+                android:visibility="gone">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="5"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="4. UPLOAD SERTIFIKAT PRESTASI"/>
+                <ImageView
+                    android:id="@+id/info_Prestasi"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_informationbublered12"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_descInfoPrestasi"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PERHATIAN! Silakan gabung sertifikat prestasi (jika ada) menjadi satu file PDF yang sama. Terima Kasih."
+                android:maxLines="4"
+                android:gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorAccent"/>
+            <LinearLayout
+                android:id="@+id/uploadPrestasi1_sheet"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_marginTop="15dp"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/buttonChooseFilePrestasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pilih File"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/et_bgmhs"/>
+
+                <EditText
+                    android:id="@+id/etNamePrestasi"
+                    android:hint="Pilih File PDF"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textSize="14sp"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"/>
+
+                <Button
+                    android:id="@+id/buttonUploadFilePrestasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upload"
+                    android:enabled="false"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/et_bgmhs"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_skipPrestasiLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="LEWATI"
+                android:textColor="@color/grey"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:textAllCaps="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/bt_Done"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:text="Selesai"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/et_bgmhs"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

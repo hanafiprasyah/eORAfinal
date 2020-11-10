@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Prestasimahasiswa"
+    android:orientation="vertical"
+    android:background="@color/ghostwhite"
+    android:id="@+id/containerPrestasi">
+
+    <ProgressBar
+        android:id="@+id/pBarPrestasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/tvURLPrestasi_transfer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_slideformorePrestasi"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/red"
+        android:text="Geser untuk melihat selanjutnya"
+        android:visibility="gone"/>
+
+    <RelativeLayout
+        android:id="@+id/layout_NotFound"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/tv_notFound"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DATA TIDAK DITEMUKAN"
+            android:textSize="16sp"
+            android:layout_centerInParent="true"
+            android:gravity="center"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_below="@+id/tv_notFound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="editnotfound.json"
+            app:lottie_loop="true"
+            app:lottie_repeatMode="reverse"/>
+    </RelativeLayout>
+</LinearLayout>

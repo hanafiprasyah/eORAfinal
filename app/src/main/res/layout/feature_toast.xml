@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:id="@+id/customFeatureToast"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:background="@drawable/bg_customtoast">
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:lottie_fileName="heartbreaking.json"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"
+        android:layout_marginEnd="10dp"/>
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center_vertical"
+        android:text="Fitur Scanning belum tersedia"
+        android:textStyle="bold"
+        android:textSize="15sp"/>
+</LinearLayout>

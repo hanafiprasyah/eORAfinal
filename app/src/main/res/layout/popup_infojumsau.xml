@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:background="@drawable/bg_infodialog"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/eoraheader"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"/>
+    </LinearLayout>
+
+    <!--Contoh1-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:padding="10dp"
+        android:weightSum="6">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="Contoh 1 :"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:text="Jika anda anak urutan pertama dan memiliki 2 (dua) orang adik, maka anda memiliki 2 (dua) orang Jumlah Saudara."
+            android:gravity="start"/>
+
+    </LinearLayout>
+
+    <!--Contoh2-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:padding="10dp"
+        android:layout_marginEnd="20dp"
+        android:weightSum="6">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:text="Contoh 2 :"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:text="Jika anda anak urutan kedua, anda memiliki 1 (satu) orang adik dan 1 (satu) orang kakak/abang, maka anda memiliki 2 (dua) orang Jumlah Saudara."
+            android:gravity="start"/>
+
+    </LinearLayout>
+
+    <!--Contoh3-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:padding="10dp"
+        android:weightSum="6"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="Contoh 3 :"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:text="Jika anda anak tunggal, maka anda tidak memiliki Jumlah Saudara."
+            android:gravity="start"/>
+
+    </LinearLayout>
+
+</LinearLayout>

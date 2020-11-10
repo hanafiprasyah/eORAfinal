@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DonaturLogin"
+    android:background="@color/secondgreen"
+    android:onClick="hideKeyboardOnLayout">
+
+    <TextView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:textSize="14sp"
+        android:drawableStart="@drawable/ic_back_right_ios"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:background="@drawable/bg_btnripple"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/headerDonatur"
+        android:layout_centerInParent="true"
+        android:layout_above="@+id/layoutcard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="E-ORA | UNP"
+        android:textSize="50sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"/>
+
+    <RelativeLayout
+        android:id="@+id/layoutcard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mhs_bg"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_centerInParent="true">
+
+        <!--START EDIT TEXT-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etNIMLayout"
+            android:layout_width="match_parent"
+            android:paddingStart="35dp"
+            android:paddingEnd="35dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etUsernameDonatur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:drawableStart="@drawable/ic_person_black"
+                android:drawablePadding="20dp"
+                android:hint="@string/ETusernameDonaturhint"
+                android:importantForAutofill="no"
+                android:focusable="auto"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--END OF EDIT TEXT-->
+
+        <!--START EDIT TEXT-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_below="@+id/etNIMLayout"
+            android:id="@+id/etPasswordLayout"
+            android:layout_width="match_parent"
+            android:paddingStart="35dp"
+            android:paddingEnd="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            android:layout_marginBottom="20dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPasswordDonatur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_lock_black_24dp"
+                android:drawablePadding="20dp"
+                android:textSize="17sp"
+                android:hint="@string/ETpasswordhint"
+                android:inputType="textPassword"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:autoLink="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--END OF EDIT TEXT-->
+
+        <TextView
+            android:id="@+id/TValert"
+            android:layout_below="@+id/etPasswordLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Isi data dengan benar!"
+            android:textColor="@color/red"
+            android:gravity="center_horizontal"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout1"
+            android:layout_below="@+id/TValert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true">
+
+            <Button
+                android:id="@+id/signInDonatur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_bgdonatur"
+                android:text="MASUK"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="true"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="atau"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/registerDonatur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Daftar EORA"
+                android:textColor="@color/black"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="10dp"
+                android:background="@drawable/et_bgregisterdonatur"
+                android:drawableStart="@drawable/ic__trending_flat_seagreen_24"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginBottom="10dp"/>
+
+            <View style="@style/Batas"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/tv_lupaPasswordDonatur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lupa Password?"
+                android:clickable="true"
+                android:textColor="@color/black"
+                android:focusable="true"
+                android:padding="10dp"
+                android:background="@drawable/et_bgregisterdonatur"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                android:layout_marginBottom="10dp"/>
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/LinearLayout1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:layout_marginBottom="20dp"/>
+    </RelativeLayout>
+
+</RelativeLayout>

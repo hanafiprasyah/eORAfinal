@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.eorafinal">
+
+    <application
+        android:name=".AppController"
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".RiwayatDonasiMahasiswa"></activity>
+        <activity
+            android:name=".AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NetworkErrorActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SplashScreenActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AdminHome"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AdminLogin"
+            android:screenOrientation="portrait" /> <!-- ***************************************** MAHASISWA ***************************************** -->
+        <activity
+            android:name=".BerkasProposal"
+            android:theme="@style/CustomThemeMahasiswa" />
+        <activity
+            android:name=".EditProposal"
+            android:theme="@style/CustomThemeMahasiswa" />
+        <activity
+            android:name=".MahasiswaLogin"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeMahasiswa" />
+        <activity
+            android:name=".RegisterMahasiswa"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeMahasiswa" />
+        <activity
+            android:name=".MahasiswaHome"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeMahasiswa" />
+        <activity
+            android:name=".AjukanProposalDonasi"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeMahasiswa" />
+        <activity
+            android:name=".EditProfilMhs"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeMahasiswa" />
+        <activity
+            android:name=".LihatDonatur"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeMahasiswa" /> <!-- ***************************************** MAHASISWA ***************************************** -->
+        <!-- ***************************************** DONATUR ***************************************** -->
+        <activity
+            android:name=".RiwayatDonasiKhusus"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeDonatur" />
+        <activity
+            android:name=".GreetingDonasiKhusus"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeDonatur" />
+        <activity
+            android:name=".DonasiKhusus"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeDonatur" />
+        <activity
+            android:name=".PilihRiwayatDonasi"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeDonatur" />
+        <activity
+            android:name=".RiwayatDonasi"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeDonatur" />
+        <activity
+            android:name=".GreetingDonasiUmum"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeDonatur" />
+        <activity
+            android:name=".DonasiUmum"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeDonatur" />
+        <activity
+            android:name=".PilihDonasi"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeDonatur" />
+        <activity
+            android:name=".MahasiswaDetail"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeDonatur" />
+        <activity
+            android:name=".LihatMahasiswa"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeDonatur" />
+        <activity
+            android:name=".EditProfilDonatur"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeDonatur" />
+        <activity
+            android:name=".DonaturHome"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeDonatur" />
+        <activity
+            android:name=".DonaturLogin"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeDonatur" />
+        <activity
+            android:name=".RegisterDonatur"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeDonatur" />
+        <activity
+            android:name=".Prestasimahasiswa"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeDonatur" />
+        <activity
+            android:name=".Buktiuangkuliah"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeDonatur" />
+        <activity
+            android:name=".Karturencanastudi"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeDonatur" />
+        <activity
+            android:name=".Lembarhasilstudi"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeDonatur" /> <!-- ***************************************** DONATUR ***************************************** -->
+        <activity
+            android:name=".UserLoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+</manifest>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PilihDonasi"
+    android:background="@color/secondgreen">
+
+    <RelativeLayout
+        android:id="@+id/RL_infoDonasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/infoLottie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_fileName="warning.json"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:id="@+id/tv_titleJenisDonasi"
+            android:layout_below="@+id/infoLottie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="JENIS DONASI"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"/>
+        <TextView
+            android:id="@+id/tv_subtitleJenisDonasiUmum"
+            android:layout_below="@+id/tv_titleJenisDonasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. DONASI UMUM"
+            android:layout_marginTop="20dp"
+            android:gravity="start"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:paddingStart="20dp"/>
+        <TextView
+            android:id="@+id/tv_descJenisDonasiUmum"
+            android:layout_below="@+id/tv_subtitleJenisDonasiUmum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Donasi umum akan diberikan kepada seluruh mahasiswa. Penyaluran donasi umum kepada mahasiswa dilakukan secara adil dan transparan."
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:paddingStart="35dp"/>
+        <TextView
+            android:id="@+id/tv_subtitleJenisDonasiKhusus"
+            android:layout_below="@+id/tv_descJenisDonasiUmum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. DONASI KHUSUS"
+            android:layout_marginTop="20dp"
+            android:gravity="start"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:paddingStart="20dp"/>
+        <TextView
+            android:id="@+id/tv_descJenisDonasiKhusus"
+            android:layout_below="@+id/tv_subtitleJenisDonasiKhusus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Donasi khusus akan diberikan kepada mahasiswa tertentu yang terpilih. Penyaluran donasi khusus kepada mahasiswa dilakukan secara tertutup antara donatur dan mahasiswa."
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:paddingStart="35dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RL_pilihDonasi"
+        android:layout_marginTop="600dp"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_pilihdonasi">
+        <Button
+            android:id="@+id/btn_donasiUmum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Donasi Umum"
+            android:background="@drawable/et_bgdonatur"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"/>
+        <Button
+            android:id="@+id/btn_donasiKhusus"
+            android:layout_below="@+id/btn_donasiUmum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Donasi Khusus"
+            android:background="@drawable/et_bgdonatur"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"/>
+        <TextView
+            android:id="@+id/TV_backToHomeDonatur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kembali ke menu Utama"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_below="@+id/btn_donasiKhusus"
+            android:layout_marginTop="25dp"/>
+        <TextView
+            android:id="@+id/idRegDonatur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="idDonatur"
+            android:gravity="center"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+</RelativeLayout>

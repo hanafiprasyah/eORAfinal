@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    tools:context=".AdminLogin">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logounp2"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <!--START TEXTLAYOUT-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_below="@+id/logo"
+        android:id="@+id/etUsernameLayout"
+        android:layout_width="match_parent"
+        android:paddingStart="35dp"
+        android:paddingEnd="35dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:drawableStart="@drawable/ic_mail"
+            android:drawablePadding="20dp"
+            android:hint="@string/email_admin"
+            android:autoLink="none"
+            android:linksClickable="false"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--END OF TEXTLAYOUT-->
+
+    <!--START EDIT TEXT-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_below="@+id/etUsernameLayout"
+        android:id="@+id/etPasswordLayout"
+        android:layout_width="match_parent"
+        android:paddingStart="35dp"
+        android:paddingEnd="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_lock_black_24dp"
+            android:drawablePadding="20dp"
+            android:textSize="17sp"
+            android:hint="@string/password_admin"
+            android:inputType="textPassword"
+            android:imeOptions="actionDone"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--END OF EDIT TEXT-->
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:textColor="#000000"
+        android:text="Login"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:layout_below="@+id/etPasswordLayout"
+        android:background="@drawable/et_bg"
+        android:layout_marginTop="20dp"
+        android:layout_centerInParent="true"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/loginButton"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:src="@drawable/eoraheader"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"/>
+</RelativeLayout>

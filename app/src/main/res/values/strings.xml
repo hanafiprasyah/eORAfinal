@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">eORAfinal</string>
+    <string name="ETnimhint">NIM Mahasiswa</string>
+    <string name="ETpasswordhint">Password EORA</string>
+    <string name="ETusernamehint">Nama Mahasiswa</string>
+    <string name="ETtempatlahirhint">Tempat Lahir</string>
+    <string name="ETjeniskelamin">Jenis Kelamin : Pria / Wanita</string>
+    <string name="ETemail">Email</string>
+    <string name="ETnotel">Nomor Telepon</string>
+    <string name="email_admin">Email Admin</string>
+    <string name="password_admin">Password Admin</string>
+    <string name="ETusernameDonaturhint">Username Donatur</string>
+
+    <!--MainActivity-->
+    <string name="main_title1">VISI EORA</string>
+    <string name="vision_text">Menyediakan wadah orang tua asuh untuk mendukung peningkatan prestasi akademik mahasiswa berlatar belakang sosial ekonomi lemah</string>
+    <string name="status_proposal_mhs">Status Proposal Anda :</string>
+    <string name="home_nama_mhs">NAMA MAHASISWA</string>
+    <string name="home_nama_donatur">NAMA DONATUR</string>
+    <string name="title_norek_mhs">Nomor Rekening Mahasiswa</string>
+
+    <!--About-->
+    <string name="txt_fitur_aplikasi">Ranking Mahasiswa, Lihat Donatur, Edit Profil, Ajukan Proposal, Edit Proposal, Donasi Khusus dan Donasi Umum</string>
+    <string name="txt_bahasa_program">MySQL/PHP sebagai Server-side dan Java dengan IDE Android.</string>
+    <string name="txt_metode_aplikasi">Metode ini digunakan dalam menentukan rekomendasi mahasiswa berdasarkan beberapa kriteria.</string>
+
+
+    <string-array name="android_dropdown_arrays">
+        <item>-Pilih-</item>
+        <item>Pria</item>
+        <item>Wanita</item>
+    </string-array>
+
+    <string-array name="android_dropdown_kategori">
+        <item> </item>
+        <item>Akademik</item>
+        <item>Non Akademik</item>
+    </string-array>
+
+    <string-array name="android_dropdown_semester">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <string-array name="android_dropdown_tingkat">
+        <item> </item>
+        <item>Perguruan Tinggi</item>
+        <item>Kabupaten/Kota</item>
+        <item>Provinsi</item>
+        <item>Nasional</item>
+        <item>Internasional</item>
+    </string-array>
+
+</resources>
