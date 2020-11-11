@@ -148,6 +148,25 @@ public class MahasiswaHome extends AppCompatActivity {
                 .duration(600)
                 .playOn(tvUploadBerkas);
 
+        FABlaporanDonasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //jika perbedaan dari current_time dan last_click < x detik, jangan lakukan apapun
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 500){
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime();
+
+                String passingNIMforLaporan = NIMmhs.getText().toString();
+                Intent goLaporan = new Intent(MahasiswaHome.this,RiwayatDonasiMahasiswa.class);
+                Bundle riwayatDonasiMahasiswa = new Bundle();
+                riwayatDonasiMahasiswa.putString("NIM",passingNIMforLaporan);
+                goLaporan.putExtras(riwayatDonasiMahasiswa);
+                startActivity(goLaporan);
+                overridePendingTransition(R.anim.falldown,R.anim.stay);
+            }
+        });
+
         btnUploadBerkas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

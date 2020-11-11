@@ -229,4 +229,10 @@ public class RiwayatDonasiKhusus extends AppCompatActivity {
         Resources r = getResources();
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
     }
+
+    @Override
+    public void onBackPressed() {
+        finishAfterTransition();
+        overridePendingTransition(0,R.anim.slide_outta_right);
+    }
 }
