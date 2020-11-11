@@ -4,6 +4,15 @@ class ModelRiwayatDonasiMahasiswa {
     private String NIM;
     private String nama_donatur;
     private String status_donasi;
+    private String id_reg_donatur;
+
+    public String getId_reg_donatur() {
+        return id_reg_donatur;
+    }
+
+    public void setId_reg_donatur(String id_reg_donatur) {
+        this.id_reg_donatur = id_reg_donatur;
+    }
 
     public String getNIM() {
         return NIM;

@@ -6,6 +6,7 @@ class ConfigProfileDonatur {
     public static final String URL_GETFOTODONATUR      = "https://prasyah.000webhostapp.com/DonaturHome/getFotoProfil.php?id_reg_donatur=";
     public static final String URL_GETNAKER            = "https://prasyah.000webhostapp.com/DonaturHome/getNaKer.php?id_reg_donatur=";
     public static final String URL_GET_TTL_EMAIL_NOTEL = "https://prasyah.000webhostapp.com/DonaturHome/getTTLemailNotel.php?id_reg_donatur=";
+    public static final String URL_GET_EMAIL_NOTEL     = "https://prasyah.000webhostapp.com/DonaturHome/getEmailNotel.php?id_reg_donatur=";
     public static final String URL_DATA_DONATURKHUSUS  = "https://prasyah.000webhostapp.com/DonaturHome/getDonaturKhusus.php?id_reg_donatur=";
     public static final String JSON_ARRAY              = "result";
     public static final String KEY_FOTO                = "foto_donatur";

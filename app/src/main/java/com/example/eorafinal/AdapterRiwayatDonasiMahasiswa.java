@@ -37,6 +37,21 @@ class AdapterRiwayatDonasiMahasiswa extends RecyclerView.Adapter<AdapterRiwayatD
         holder.NIM.setText(mDataRiwayatMahasiswa.get(position).getNIM());
         holder.nama_donatur.setText(mDataRiwayatMahasiswa.get(position).getNama_donatur());
         holder.status.setText(mDataRiwayatMahasiswa.get(position).getStatus_donasi());
+        holder.tvIdRegDetailDonatur.setText((mDataRiwayatMahasiswa.get(position).getId_reg_donatur()));
+
+        holder.cv_riwayatDonasiMahasiswa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(mContext,DonaturDetail.class);
+                String passingidDonaturToDonaturDetail = holder.tvIdRegDetailDonatur.getText().toString();
+                Bundle idDonaturtoDonaturDetail = new Bundle();
+                idDonaturtoDonaturDetail.putString("NIM",passingidDonaturToDonaturDetail);
+                i.putExtra("id_reg_donatur",mDataRiwayatMahasiswa.get(position).getId_reg_donatur());
+                i.putExtras(idDonaturtoDonaturDetail);
+                ((RiwayatDonasiMahasiswa)mContext).startActivityForResult(i,2);
+                ((RiwayatDonasiMahasiswa)mContext).overridePendingTransition(R.anim.falldown,R.anim.stay);
+            }
+        });
     }
 
     @Override
@@ -45,7 +60,7 @@ class AdapterRiwayatDonasiMahasiswa extends RecyclerView.Adapter<AdapterRiwayatD
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView NIM,nama_donatur,status;
+        TextView NIM,nama_donatur,status,tvIdRegDetailDonatur;
         CardView cv_riwayatDonasiMahasiswa;
 
         public MyViewHolder(View itemView){
@@ -54,6 +69,7 @@ class AdapterRiwayatDonasiMahasiswa extends RecyclerView.Adapter<AdapterRiwayatD
             nama_donatur = itemView.findViewById(R.id.namaDonatur_riwayatDonasiMahasiswa);
             status = itemView.findViewById(R.id.status_riwayatDonasiMahasiswa);
             cv_riwayatDonasiMahasiswa = itemView.findViewById(R.id.card_view_layoutRiwayatDonasiMahasiswa);
+            tvIdRegDetailDonatur = itemView.findViewById(R.id.idRegdonatur_riwayatMahasiswa);
         }
     }
 }

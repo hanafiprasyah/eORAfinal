@@ -66,6 +66,14 @@
                 android:textSize="16sp"
                 android:gravity="center"
                 android:text="Memuat.."/>
+            <TextView
+                android:id="@+id/idRegdonatur_riwayatMahasiswa"
+                android:layout_below="@+id/status_riwayatDonasiMahasiswa"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:text="ID REG DONATUR TO TRANSFER"/>
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>

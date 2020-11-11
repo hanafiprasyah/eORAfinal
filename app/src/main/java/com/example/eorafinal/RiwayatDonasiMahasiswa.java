@@ -39,7 +39,7 @@ import java.util.Objects;
 
 public class RiwayatDonasiMahasiswa extends AppCompatActivity {
 
-    TextView btnBack,infoDonasi,NIMdonasiMahasiswa;
+    TextView btnBack,infoDonasi,NIMdonasiMahasiswa,idRegDonatur_riwayatDonasiMahasiswa;
     private RecyclerView recycleViewMahasiswa;
     private ProgressBar progressBarMahasiswa;
 
@@ -141,6 +141,7 @@ public class RiwayatDonasiMahasiswa extends AppCompatActivity {
                         modelRiwayatMahasiswa.setNIM(jsonObject.getString("NIM"));
                         modelRiwayatMahasiswa.setNama_donatur(jsonObject.getString("nama_donatur"));
                         modelRiwayatMahasiswa.setStatus_donasi(jsonObject.getString("status_donasi"));
+                        modelRiwayatMahasiswa.setId_reg_donatur(jsonObject.getString("id_reg_donatur"));
 
                         modelRiwayatDonasiMahasiswa.add(modelRiwayatMahasiswa);
                         infoDonasi.setVisibility(View.GONE);
@@ -232,7 +233,8 @@ public class RiwayatDonasiMahasiswa extends AppCompatActivity {
         progressBarMahasiswa = findViewById(R.id.progressBarRiwayatDonasiMahasiswa);
         infoDonasi = findViewById(R.id.infoBelumDonasi);
         recycleViewMahasiswa = findViewById(R.id.recyclerviewRiwayatDonasiMahasiswa);
-        NIMdonasiMahasiswa = findViewById(R.id.NIMmahasiswa_riwayatDonasiMahasiswa);
+        NIMdonasiMahasiswa = findViewById(R.id.tvNIM_RiwayatDonasiMahasiswa);
+        idRegDonatur_riwayatDonasiMahasiswa = findViewById(R.id.idRegdonatur_riwayatMahasiswa);
     }
 
     @Override
