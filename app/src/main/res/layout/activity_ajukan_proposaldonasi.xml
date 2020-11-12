@@ -103,7 +103,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:text="Pilih Fakultas" />
+                        android:textColor="@color/color5"
+                        android:text="* Pilih Fakultas" />
                     <Spinner
                         android:id="@+id/fakultas_spinner"
                         android:layout_width="match_parent"
@@ -127,7 +128,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:text="Pilih Jurusan" />
+                        android:textColor="@color/color5"
+                        android:text="* Pilih Jurusan" />
                     <Spinner
                         android:id="@+id/jurusan_spinner"
                         android:layout_width="match_parent"
