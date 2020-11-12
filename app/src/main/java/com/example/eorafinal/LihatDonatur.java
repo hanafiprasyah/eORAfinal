@@ -191,7 +191,7 @@ public class LihatDonatur extends AppCompatActivity {
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(8), true));
+        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(2), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(myAdapter);
     }
