@@ -11,8 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".DonaturDetail"></activity>
-        <activity android:name=".RiwayatDonasiMahasiswa" />
+        <activity android:name=".KelolaProposalmahasiswa"></activity>
         <activity
             android:name=".AboutActivity"
             android:screenOrientation="portrait" />
@@ -30,10 +29,20 @@
             android:name=".AdminLogin"
             android:screenOrientation="portrait" /> <!-- ***************************************** MAHASISWA ***************************************** -->
         <activity
+            android:name=".DonaturDetail"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeMahasiswa" />
+        <activity
+            android:name=".RiwayatDonasiMahasiswa"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomThemeMahasiswa" />
+        <activity
             android:name=".BerkasProposal"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomThemeMahasiswa" />
         <activity
             android:name=".EditProposal"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomThemeMahasiswa" />
         <activity
             android:name=".MahasiswaLogin"
@@ -145,12 +154,13 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     //kontenDelay
     TextView visionTitle,visionText,greeting1,greeting2,titlePanduan,footerText;
-    ImageView visionSeparator,vision2,panduanSeparator;
+    ImageView visionSeparator,vision2,panduanSeparator,adminView;
     ImageSlider imageSlider;
 
     //prevent double click
@@ -216,6 +216,22 @@ public class MainActivity extends AppCompatActivity {
         titlePanduan.setVisibility(View.VISIBLE);
         panduanSeparator.setVisibility(View.VISIBLE);
 
+        adminView = findViewById(R.id.logounp);
+        adminView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //jika perbedaan dari current_time dan last_click < x detik, jangan lakukan apapun
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 500){
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime();
+
+                Intent i = new Intent(MainActivity.this,AdminLogin.class);
+                startActivity(i);
+                finishAfterTransition();
+                overridePendingTransition(R.anim.fade_in,R.anim.stay);
+            }
+        });
 
         nestedScrollView = findViewById(R.id.nestedView);
         if (nestedScrollView != null){

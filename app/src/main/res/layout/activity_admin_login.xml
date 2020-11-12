@@ -7,14 +7,38 @@
     android:focusableInTouchMode="true"
     tools:context=".AdminLogin">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarAdminLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/btnBacktoMainMenu_admin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/bg_btnripple"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:drawableStart="@drawable/ic_back_ios"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:paddingStart="10dp"
+                android:clickable="true"
+                android:focusable="true" />
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
     <ImageView
         android:id="@+id/logo"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/logounp2"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="50dp"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
 
     <!--START TEXTLAYOUT-->
@@ -72,7 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
         android:textColor="#000000"
-        android:text="Login"
+        android:text="l o g i n"
         android:textSize="18sp"
         android:padding="10dp"
         android:layout_below="@+id/etPasswordLayout"
@@ -96,8 +120,8 @@
     </LinearLayout>
 
     <ImageView
-        android:layout_width="160dp"
-        android:layout_height="80dp"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
         android:src="@drawable/eoraheader"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

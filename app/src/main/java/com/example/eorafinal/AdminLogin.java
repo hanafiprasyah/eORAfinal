@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -33,15 +34,18 @@ public class AdminLogin extends AppCompatActivity {
     private ProgressBar progressBar;
     private EditText emailTV, passwordTV;
     private Button login;
+    private TextView btnBack;
+
+    //prevent double click
+    private long mLastClickTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // remove title
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getWindow().setStatusBarColor(Color.TRANSPARENT);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        getWindow().setStatusBarColor(getResources().getColor(R.color.black));
         setContentView(R.layout.activity_admin_login);
 
         initializeUI();
@@ -72,6 +76,22 @@ public class AdminLogin extends AppCompatActivity {
                 loginUserAcc();
             }
         });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //jika perbedaan dari current_time dan last_click < x detik, jangan lakukan apapun
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 500){
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime();
+
+                Intent i = new Intent(AdminLogin.this,MainActivity.class);
+                startActivity(i);
+                finishAfterTransition();
+                overridePendingTransition(R.anim.stay,R.anim.splash_fade_out);
+            }
+        });
     }
 
     private void initializeUI() {
@@ -79,6 +99,7 @@ public class AdminLogin extends AppCompatActivity {
         passwordTV = findViewById(R.id.etPassword);
         login = findViewById(R.id.loginButton);
         progressBar = findViewById(R.id.progressBar);
+        btnBack = findViewById(R.id.btnBacktoMainMenu_admin);
     }
 
     private void loginUserAcc() {
@@ -134,5 +155,13 @@ public class AdminLogin extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(AdminLogin.this,MainActivity.class);
+        startActivity(i);
+        finishAfterTransition();
+        overridePendingTransition(R.anim.stay,R.anim.splash_fade_out);
     }
 }
