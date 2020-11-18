@@ -31,10 +31,14 @@
         <item>Wanita</item>
     </string-array>
 
-    <string-array name="android_dropdown_kategori">
+    <string-array name="android_dropdown_kategoriAkademik">
         <item> </item>
         <item>Akademik</item>
-        <item>Non Akademik</item>
+    </string-array>
+
+    <string-array name="android_dropdown_kategoriNonAkademik">
+        <item> </item>
+        <item>Non-akademik</item>
     </string-array>
 
     <string-array name="android_dropdown_semester">

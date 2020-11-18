@@ -356,12 +356,6 @@
                         android:maxLength="20"
                         android:inputType="number"
                         app:met_floatingLabel="highlight"/>
-                    <TextView
-                        android:id="@+id/tv_valueforUKT"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="KRITERIA UKT"
-                        android:visibility="gone"/>
                 </LinearLayout>
                 <!--NamaBank-->
                 <LinearLayout
@@ -566,7 +560,7 @@
                         android:inputType="textCapWords"
                         android:layout_marginEnd="15dp"
                         android:layout_height="wrap_content"
-                        android:hint="Prestasi 1"
+                        android:hint="Prestasi Akademik"
                         app:met_floatingLabel="highlight"/>
                 </LinearLayout>
                 <!--kategoriSatu-->
@@ -590,7 +584,7 @@
                         android:layout_weight="3"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:entries="@array/android_dropdown_kategori"/>
+                        android:entries="@array/android_dropdown_kategoriAkademik"/>
                 </LinearLayout>
                 <!--tingkatSatu-->
                 <LinearLayout
@@ -614,6 +608,12 @@
                         android:layout_height="wrap_content"
                         android:entries="@array/android_dropdown_tingkat"
                         android:layout_marginStart="10dp"/>
+                    <TextView
+                        android:id="@+id/tv_valueforPrestasiAkademik"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="KRITERIA PRESTASI AKADEMIK"
+                        android:visibility="gone"/>
                 </LinearLayout>
 
                 <!--PrestasiDua-->
@@ -638,7 +638,7 @@
                         android:inputType="textCapWords"
                         android:layout_marginEnd="15dp"
                         android:layout_height="wrap_content"
-                        android:hint="Prestasi 2"
+                        android:hint="Prestasi Non-akademik"
                         app:met_floatingLabel="highlight"/>
                 </LinearLayout>
                 <!--KategoriDua-->
@@ -662,7 +662,7 @@
                         android:layout_weight="3"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:entries="@array/android_dropdown_kategori"/>
+                        android:entries="@array/android_dropdown_kategoriNonAkademik"/>
                 </LinearLayout>
                 <!--TingkatDua-->
                 <LinearLayout
@@ -670,6 +670,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal">
                     <TextView
@@ -686,223 +687,12 @@
                         android:layout_height="wrap_content"
                         android:entries="@array/android_dropdown_tingkat"
                         android:layout_marginStart="10dp"/>
-                </LinearLayout>
-
-                <!--prestasiTiga-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:weightSum="6">
-                    <com.airbnb.lottie.LottieAnimationView
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
-                        android:padding="10dp"
-                        android:layout_height="match_parent"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="true"
-                        app:lottie_fileName="arrowright.json"/>
-                    <com.rengwuxian.materialedittext.MaterialEditText
-                        android:id="@+id/et_prestasiTiga"
-                        android:layout_weight="5"
-                        android:layout_width="0dp"
-                        android:inputType="textCapWords"
-                        android:layout_marginEnd="15dp"
-                        android:layout_height="wrap_content"
-                        android:hint="Prestasi 3"
-                        app:met_floatingLabel="highlight"/>
-                </LinearLayout>
-                <!--kategoriTiga-->
-                <LinearLayout
-                    android:layout_width="280dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center_horizontal">
                     <TextView
-                        android:id="@+id/tv_kategori3Result"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:id="@+id/tv_valueforPrestasiNonAkademik"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kategori"
-                        android:textSize="14sp" />
-                    <Spinner
-                        android:id="@+id/kategori3_spinner"
-                        android:layout_width="0dp"
-                        android:layout_weight="3"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:entries="@array/android_dropdown_kategori"/>
-                </LinearLayout>
-                <!--tingkatTiga-->
-                <LinearLayout
-                    android:layout_width="280dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center_horizontal">
-                    <TextView
-                        android:id="@+id/tv_tingkat3Result"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="Tingkat"
-                        android:textSize="14sp" />
-                    <Spinner
-                        android:id="@+id/tingkat3_spinner"
-                        android:layout_width="0dp"
-                        android:layout_weight="3"
-                        android:layout_height="wrap_content"
-                        android:entries="@array/android_dropdown_tingkat"
-                        android:layout_marginStart="10dp"/>
-                </LinearLayout>
-
-                <!--PrestasiEmpat-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:weightSum="6">
-                    <com.airbnb.lottie.LottieAnimationView
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
-                        android:padding="10dp"
-                        android:layout_height="match_parent"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="true"
-                        app:lottie_fileName="arrowright.json"/>
-                    <com.rengwuxian.materialedittext.MaterialEditText
-                        android:id="@+id/et_prestasiEmpat"
-                        android:layout_weight="5"
-                        android:layout_width="0dp"
-                        android:inputType="textCapWords"
-                        android:layout_marginEnd="15dp"
-                        android:layout_height="wrap_content"
-                        android:hint="Prestasi 4"
-                        app:met_floatingLabel="highlight"/>
-                </LinearLayout>
-                <!--KategoriEmpat-->
-                <LinearLayout
-                    android:layout_width="280dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center_horizontal">
-                    <TextView
-                        android:id="@+id/tv_kategori4Result"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="Kategori"
-                        android:textSize="14sp" />
-                    <Spinner
-                        android:id="@+id/kategori4_spinner"
-                        android:layout_width="0dp"
-                        android:layout_weight="3"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:entries="@array/android_dropdown_kategori"/>
-                </LinearLayout>
-                <!--TingkatEmpat-->
-                <LinearLayout
-                    android:layout_width="280dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center_horizontal">
-                    <TextView
-                        android:id="@+id/tv_tingkat4Result"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="Tingkat"
-                        android:textSize="14sp" />
-                    <Spinner
-                        android:id="@+id/tingkat4_spinner"
-                        android:layout_width="0dp"
-                        android:layout_weight="3"
-                        android:layout_height="wrap_content"
-                        android:entries="@array/android_dropdown_tingkat"
-                        android:layout_marginStart="10dp"/>
-                </LinearLayout>
-
-                <!--PrestasiLima-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:weightSum="6">
-                    <com.airbnb.lottie.LottieAnimationView
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
-                        android:padding="10dp"
-                        android:layout_height="match_parent"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="true"
-                        app:lottie_fileName="arrowright.json"/>
-                    <com.rengwuxian.materialedittext.MaterialEditText
-                        android:id="@+id/et_prestasiLima"
-                        android:layout_weight="5"
-                        android:layout_width="0dp"
-                        android:inputType="textCapWords"
-                        android:layout_marginEnd="15dp"
-                        android:layout_height="wrap_content"
-                        android:hint="Prestasi 5"
-                        app:met_floatingLabel="highlight"/>
-                </LinearLayout>
-                <!--KategoriLima-->
-                <LinearLayout
-                    android:layout_width="280dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center_horizontal">
-                    <TextView
-                        android:id="@+id/tv_kategori5Result"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="Kategori"
-                        android:textSize="14sp" />
-                    <Spinner
-                        android:id="@+id/kategori5_spinner"
-                        android:layout_width="0dp"
-                        android:layout_weight="3"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:entries="@array/android_dropdown_kategori"/>
-                </LinearLayout>
-                <!--TingkatLima-->
-                <LinearLayout
-                    android:layout_width="280dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="30dp"
-                    android:gravity="center_horizontal">
-                    <TextView
-                        android:id="@+id/tv_tingkat5Result"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="Tingkat"
-                        android:textSize="14sp" />
-                    <Spinner
-                        android:id="@+id/tingkat5_spinner"
-                        android:layout_width="0dp"
-                        android:layout_weight="3"
-                        android:layout_height="wrap_content"
-                        android:entries="@array/android_dropdown_tingkat"
-                        android:layout_marginStart="10dp"/>
+                        android:text="KRITERIA PRESTASI NON AKADEMIK"
+                        android:visibility="gone"/>
                 </LinearLayout>
 
                 <!--ButtonSave-->

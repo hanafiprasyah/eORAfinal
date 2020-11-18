@@ -78,17 +78,17 @@ public class AjukanProposalDonasi extends AppCompatActivity {
     NestedScrollView nestedScrollView;
 
     //ForSkorKriteria
-    String getKriteria_jumlahAnak,getKriteria_penghasilanOrtu,getKriteria_UKT,getKriteria_IPK,getKriteria_semester;
-    TextView TVvalueJumlahAnak,TVvaluePenghasilanOrtu,TVvalueUKT,TVvalueIPK,TVvalueSemester;
-    Double setValueJumlahAnak,setValuePenghasilanOrtu,setValueUKT,setValueIPK,setValueSemester;
-    //_______________
+    String getKriteria_jumlahAnak,getKriteria_penghasilanOrtu,getKriteria_IPK,getPrestasiAkademik,getPrestasiNonAkademik;
+    TextView TVvalueJumlahAnak,TVvaluePenghasilanOrtu,TVvalueIPK,TVvaluePrestasiAkademik,TVvaluePrestasiNonAkademik;
+    Double setValueJumlahAnak,setValuePenghasilanOrtu,setValueIPK,setValuePrestasiAkademik,setValuePrestasiNonAkademik;
+    //------------------
 
     private static final String TAG = "AjukanProposalDonasi"; //untuk melihat log
     //aksi Input-----------------
     Button btnSaveProposal;
-    MaterialEditText edtNimForeign,edtNamaAyah,edtNamaIbu,edtKerjaAyah,edtKerjaIbu,edtJumSau,edtAnakke,edtGajiOrtu,edtUKT,edtNamaBank,edtNorek,edtAlamatDomisili,edtAlamatKTP,edtPrestasi1,edtPrestasi2,edtPrestasi3,edtPrestasi4,edtPrestasi5;
+    MaterialEditText edtNimForeign,edtNamaAyah,edtNamaIbu,edtKerjaAyah,edtKerjaIbu,edtJumSau,edtAnakke,edtGajiOrtu,edtUKT,edtNamaBank,edtNorek,edtAlamatDomisili,edtAlamatKTP,edtPrestasiAkademik,edtPrestasiNonAkademik;
     TextView resultIPK;
-    Spinner spinSemester,spinKategori1,spinKategori2,spinKategori3,spinKategori4,spinKategori5,spinTingkat1,spinTingkat2,spinTingkat3,spinTingkat4,spinTingkat5,spinFakultas,spinJurusan;
+    Spinner spinSemester,spinKategoriAkademik,spinKategoriNonAkademik,spinTingkatAkademik,spinTingkatNonAkademik,spinFakultas,spinJurusan;
     //------------------
 
     //prevent double click
@@ -102,8 +102,8 @@ public class AjukanProposalDonasi extends AppCompatActivity {
 
     private ProgressDialog progressDialog;
 
-    String NIMforeign_send,fakultas_send,jurusan_send,status_send="menunggu",namaAyah_send,namaIbu_send,kerjaAyah_send,kerjaIbu_send,jumSau_send,anakKe_send,gajiOrtu_send,ukt_send,namaBank_send,norek_send,alamatDomisili_send,alamatKTP_send,IPK_send,semester_send,prestasi1_send,kategori1_send,tingkat1_send,prestasi2_send,kategori2_send,tingkat2_send,prestasi3_send,kategori3_send,tingkat3_send,prestasi4_send,kategori4_send,tingkat4_send,prestasi5_send,kategori5_send,tingkat5_send;
-    String sendValueNIM,sendValuePenghasilanOrtu,sendValueUKT,sendValueJumlahAnak,sendValueSemester,sendValueIPK;
+    String NIMforeign_send,fakultas_send,jurusan_send,status_send="upload berkas",namaAyah_send,namaIbu_send,kerjaAyah_send,kerjaIbu_send,jumSau_send,anakKe_send,gajiOrtu_send,ukt_send,namaBank_send,norek_send,alamatDomisili_send,alamatKTP_send,IPK_send,semester_send,prestasiAkademik_send,kategoriAkademik_send,tingkatAkademik_send,prestasiNonAkademik_send,kategoriNonAkademik_send,tingkatNonAkademik_send;
+    String sendValueNIM,sendValuePenghasilanOrtu,sendValueJumlahAnak,sendValuePrestasiAkademik,sendValuePrestasiNonAkademik,sendValueIPK;
     String valueNIMforRank;
 
     //ArrayListFAKULTASdanJURUSAN
@@ -324,6 +324,7 @@ public class AjukanProposalDonasi extends AppCompatActivity {
                 }
             }
         });
+
         edtGajiOrtu.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -344,26 +345,7 @@ public class AjukanProposalDonasi extends AppCompatActivity {
                 }
             }
         });
-        edtUKT.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (s!=null && !s.toString().equalsIgnoreCase("")){
-                    if (edtUKT.getText().hashCode() == s.hashCode()){
-                        UpdateUI_UKT();
-                    }
-                }
-            }
-        });
         resultIPK.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -385,18 +367,38 @@ public class AjukanProposalDonasi extends AppCompatActivity {
             }
         });
 
-        spinSemester.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        //SpinPrestasiAkademik
+        spinTingkatAkademik.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                int semesterChoose = position;
-                switch (semesterChoose){
-                    case 0 : setValueSemester = 0.0;TVvalueSemester.setText(String.valueOf(setValueSemester));break;
-                    case 1 : setValueSemester = 1.0;TVvalueSemester.setText(String.valueOf(setValueSemester));break;
-                    case 2 : setValueSemester = 1.0;TVvalueSemester.setText(String.valueOf(setValueSemester));break;
-                    case 3 : setValueSemester = 0.8;TVvalueSemester.setText(String.valueOf(setValueSemester));break;
-                    case 4 : setValueSemester = 0.6;TVvalueSemester.setText(String.valueOf(setValueSemester));break;
-                    case 5 : setValueSemester = 0.4;TVvalueSemester.setText(String.valueOf(setValueSemester));break;
-                    case 6 : setValueSemester = 0.2;TVvalueSemester.setText(String.valueOf(setValueSemester));break;
+                int tingkatanPrestasiAkademikChoose = position;
+                switch (tingkatanPrestasiAkademikChoose){
+                    case 0 : setValuePrestasiAkademik = 0.2;TVvaluePrestasiAkademik.setText(String.valueOf(setValuePrestasiAkademik));break;
+                    case 1 : setValuePrestasiAkademik = 0.4;TVvaluePrestasiAkademik.setText(String.valueOf(setValuePrestasiAkademik));break;
+                    case 2 : setValuePrestasiAkademik = 0.6;TVvaluePrestasiAkademik.setText(String.valueOf(setValuePrestasiAkademik));break;
+                    case 3 : setValuePrestasiAkademik = 0.6;TVvaluePrestasiAkademik.setText(String.valueOf(setValuePrestasiAkademik));break;
+                    case 4 : setValuePrestasiAkademik = 0.8;TVvaluePrestasiAkademik.setText(String.valueOf(setValuePrestasiAkademik));break;
+                    case 5 : setValuePrestasiAkademik = 1.0;TVvaluePrestasiAkademik.setText(String.valueOf(setValuePrestasiAkademik));break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spinTingkatNonAkademik.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                int tingkatanPrestasiNonAkademikChoose = position;
+                switch (tingkatanPrestasiNonAkademikChoose){
+                    case 0 : setValuePrestasiNonAkademik = 0.2;TVvaluePrestasiNonAkademik.setText(String.valueOf(setValuePrestasiNonAkademik));break;
+                    case 1 : setValuePrestasiNonAkademik = 0.4;TVvaluePrestasiNonAkademik.setText(String.valueOf(setValuePrestasiNonAkademik));break;
+                    case 2 : setValuePrestasiNonAkademik = 0.6;TVvaluePrestasiNonAkademik.setText(String.valueOf(setValuePrestasiNonAkademik));break;
+                    case 3 : setValuePrestasiNonAkademik = 0.6;TVvaluePrestasiNonAkademik.setText(String.valueOf(setValuePrestasiNonAkademik));break;
+                    case 4 : setValuePrestasiNonAkademik = 0.8;TVvaluePrestasiNonAkademik.setText(String.valueOf(setValuePrestasiNonAkademik));break;
+                    case 5 : setValuePrestasiNonAkademik = 1.0;TVvaluePrestasiNonAkademik.setText(String.valueOf(setValuePrestasiNonAkademik));break;
                 }
             }
 
@@ -546,22 +548,13 @@ public class AjukanProposalDonasi extends AppCompatActivity {
                 alamatDomisili_send     = edtAlamatDomisili.getText().toString();
                 alamatKTP_send          = edtAlamatKTP.getText().toString();
                 IPK_send                = resultIPK.getText().toString();
-                prestasi1_send          = edtPrestasi1.getText().toString();
-                prestasi2_send          = edtPrestasi2.getText().toString();
-                prestasi3_send          = edtPrestasi3.getText().toString();
-                prestasi4_send          = edtPrestasi4.getText().toString();
-                prestasi5_send          = edtPrestasi5.getText().toString();
                 semester_send           = spinSemester.getSelectedItem().toString();
-                kategori1_send          = spinKategori1.getSelectedItem().toString();
-                kategori2_send          = spinKategori2.getSelectedItem().toString();
-                kategori3_send          = spinKategori3.getSelectedItem().toString();
-                kategori4_send          = spinKategori4.getSelectedItem().toString();
-                kategori5_send          = spinKategori5.getSelectedItem().toString();
-                tingkat1_send           = spinTingkat1.getSelectedItem().toString();
-                tingkat2_send           = spinTingkat2.getSelectedItem().toString();
-                tingkat3_send           = spinTingkat3.getSelectedItem().toString();
-                tingkat4_send           = spinTingkat4.getSelectedItem().toString();
-                tingkat5_send           = spinTingkat5.getSelectedItem().toString();
+                prestasiAkademik_send   = edtPrestasiAkademik.getText().toString();
+                prestasiNonAkademik_send= edtPrestasiNonAkademik.getText().toString();
+                kategoriAkademik_send   = spinKategoriAkademik.getSelectedItem().toString();
+                kategoriNonAkademik_send= spinKategoriNonAkademik.getSelectedItem().toString();
+                tingkatAkademik_send    = spinTingkatAkademik.getSelectedItem().toString();
+                tingkatNonAkademik_send = spinTingkatNonAkademik.getSelectedItem().toString();
 
                 if (conMgr.getActiveNetworkInfo() != null
                         && conMgr.getActiveNetworkInfo().isAvailable()
@@ -581,7 +574,7 @@ public class AjukanProposalDonasi extends AppCompatActivity {
                                     progressDialog.dismiss();
                                     FancyToast.makeText(AjukanProposalDonasi.this,"Data Jumlah Saudara, Penghasilan Orang Tua dan UKT harus diisi!",FancyToast.LENGTH_SHORT, FancyToast.ERROR, R.drawable.ic_errorwhite24, false).show();
                                 } else {
-                                    UploadProposal(NIMforeign_send,fakultas_send,jurusan_send,status_send,namaAyah_send,namaIbu_send,kerjaAyah_send,kerjaIbu_send,jumSau_send,anakKe_send,gajiOrtu_send,ukt_send,namaBank_send,norek_send,alamatDomisili_send,alamatKTP_send,IPK_send,semester_send,prestasi1_send,kategori1_send,tingkat1_send,prestasi2_send,kategori2_send,tingkat2_send,prestasi3_send,kategori3_send,tingkat3_send,prestasi4_send,kategori4_send,tingkat4_send,prestasi5_send,kategori5_send,tingkat5_send);
+                                    UploadProposal(NIMforeign_send,fakultas_send,jurusan_send,status_send,namaAyah_send,namaIbu_send,kerjaAyah_send,kerjaIbu_send,jumSau_send,anakKe_send,gajiOrtu_send,ukt_send,namaBank_send,norek_send,alamatDomisili_send,alamatKTP_send,IPK_send,semester_send,prestasiAkademik_send,kategoriAkademik_send,tingkatAkademik_send,prestasiNonAkademik_send,kategoriNonAkademik_send,tingkatNonAkademik_send);
                                 }
                             }
                         }
@@ -595,7 +588,7 @@ public class AjukanProposalDonasi extends AppCompatActivity {
         });
     }
 
-    private void UploadProposal(String NIMforeign_send, String fakultas_send, String jurusan_send, String status_send, String namaAyah_send, String namaIbu_send, String kerjaAyah_send, String kerjaIbu_send, String jumSau_send, String anakKe_send, String gajiOrtu_send, String ukt_send, String namaBank_send, String norek_send, String alamatDomisili_send, String alamatKTP_send, String IPK_send, String semester_send, String prestasi1_send, String kategori1_send, String tingkat1_send, String prestasi2_send, String kategori2_send, String tingkat2_send, String prestasi3_send, String kategori3_send, String tingkat3_send, String prestasi4_send, String kategori4_send, String tingkat4_send, String prestasi5_send, String kategori5_send, String tingkat5_send) {
+    private void UploadProposal(String NIMforeign_send, String fakultas_send, String jurusan_send, String status_send, String namaAyah_send, String namaIbu_send, String kerjaAyah_send, String kerjaIbu_send, String jumSau_send, String anakKe_send, String gajiOrtu_send, String ukt_send, String namaBank_send, String norek_send, String alamatDomisili_send, String alamatKTP_send, String IPK_send, String semester_send, String prestasiAkademik_send, String kategoriAkademik_send, String tingkatAkademik_send, String prestasiNonAkademik_send, String kategoriNonAkademik_send, String tingkatNonAkademik_send) {
         AndroidNetworking.post("https://prasyah.000webhostapp.com/inputProposal.php")
                 .addBodyParameter("proposal_id","")
                 .addBodyParameter("NIM", NIMforeign_send)
@@ -616,21 +609,12 @@ public class AjukanProposalDonasi extends AppCompatActivity {
                 .addBodyParameter("alamat_ktp", alamatKTP_send)
                 .addBodyParameter("ipk_mhs", IPK_send)
                 .addBodyParameter("semester", semester_send)
-                .addBodyParameter("prestasi1", prestasi1_send)
-                .addBodyParameter("kategori1", kategori1_send)
-                .addBodyParameter("tingkat1", tingkat1_send)
-                .addBodyParameter("prestasi2", prestasi2_send)
-                .addBodyParameter("kategori2", kategori2_send)
-                .addBodyParameter("tingkat2", tingkat2_send)
-                .addBodyParameter("prestasi3", prestasi3_send)
-                .addBodyParameter("kategori3", kategori3_send)
-                .addBodyParameter("tingkat3", tingkat3_send)
-                .addBodyParameter("prestasi4", prestasi4_send)
-                .addBodyParameter("kategori4", kategori4_send)
-                .addBodyParameter("tingkat4", tingkat4_send)
-                .addBodyParameter("prestasi5", prestasi5_send)
-                .addBodyParameter("kategori5", kategori5_send)
-                .addBodyParameter("tingkat5", tingkat5_send)
+                .addBodyParameter("prestasi_akademik", prestasiAkademik_send)
+                .addBodyParameter("kategori_akademik", kategoriAkademik_send)
+                .addBodyParameter("tingkatan_akademik", tingkatAkademik_send)
+                .addBodyParameter("prestasi_nonaka", prestasiNonAkademik_send)
+                .addBodyParameter("kategori_nonaka", kategoriNonAkademik_send)
+                .addBodyParameter("tingkatan_nonaka", tingkatNonAkademik_send)
                 .setPriority(Priority.MEDIUM)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
@@ -666,9 +650,9 @@ public class AjukanProposalDonasi extends AppCompatActivity {
         sendValueNIM                        = edtNimForeign.getText().toString();
         sendValuePenghasilanOrtu            = TVvaluePenghasilanOrtu.getText().toString();
         sendValueIPK                        = TVvalueIPK.getText().toString();
-        sendValueSemester                   = TVvalueSemester.getText().toString();
-        sendValueUKT                        = TVvalueUKT.getText().toString();
         sendValueJumlahAnak                 = TVvalueJumlahAnak.getText().toString();
+        sendValuePrestasiAkademik           = TVvaluePrestasiAkademik.getText().toString();
+        sendValuePrestasiNonAkademik        = TVvaluePrestasiNonAkademik.getText().toString();
 
         if (conMgr.getActiveNetworkInfo() != null
                 && conMgr.getActiveNetworkInfo().isAvailable()
@@ -677,7 +661,7 @@ public class AjukanProposalDonasi extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    UploadSkor(sendValueNIM,sendValuePenghasilanOrtu,sendValueIPK,sendValueJumlahAnak,sendValueUKT,sendValueSemester);
+                    UploadSkor(sendValueNIM,sendValuePenghasilanOrtu,sendValueIPK,sendValueJumlahAnak,sendValuePrestasiAkademik,sendValuePrestasiNonAkademik);
                 }
             },5000);
         } else {
@@ -687,15 +671,15 @@ public class AjukanProposalDonasi extends AppCompatActivity {
         }
     }
 
-    private void UploadSkor(String sendValueNIM, String sendValuePenghasilanOrtu, String sendValueIPK, String sendValueJumlahAnak, String sendValueUKT, String sendValueSemester) {
+    private void UploadSkor(String sendValueNIM, String sendValuePenghasilanOrtu, String sendValueIPK, String sendValueJumlahAnak, String sendValuePrestasiAkademik, String sendValuePrestasiNonAkademik) {
         AndroidNetworking.post("https://prasyah.000webhostapp.com/sendSkor.php")
                 .addBodyParameter("id_skor","")
                 .addBodyParameter("NIM", sendValueNIM)
                 .addBodyParameter("kriteria_gaji", sendValuePenghasilanOrtu)
                 .addBodyParameter("kriteria_ipk", sendValueIPK)
                 .addBodyParameter("kriteria_jumlahAnak",sendValueJumlahAnak)
-                .addBodyParameter("kriteria_ukt",sendValueUKT)
-                .addBodyParameter("kriteria_semester",sendValueSemester)
+                .addBodyParameter("kriteria_akademik",sendValuePrestasiAkademik)
+                .addBodyParameter("kriteria_nonakademik",sendValuePrestasiNonAkademik)
                 .setPriority(Priority.MEDIUM)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
@@ -801,11 +785,8 @@ public class AjukanProposalDonasi extends AppCompatActivity {
         edtNorek = findViewById(R.id.et_norek);
         edtAlamatDomisili = findViewById(R.id.et_alamatDomisili);
         edtAlamatKTP = findViewById(R.id.et_alamatKTP);
-        edtPrestasi1 = findViewById(R.id.et_prestasiSatu);
-        edtPrestasi2 = findViewById(R.id.et_prestasiDua);
-        edtPrestasi3 = findViewById(R.id.et_prestasiTiga);
-        edtPrestasi4 = findViewById(R.id.et_prestasiEmpat);
-        edtPrestasi5 = findViewById(R.id.et_prestasiLima);
+        edtPrestasiAkademik = findViewById(R.id.et_prestasiSatu);
+        edtPrestasiNonAkademik = findViewById(R.id.et_prestasiDua);
 
         //TextView
         resultIPK = findViewById(R.id.tv_seekBarResult);
@@ -813,27 +794,18 @@ public class AjukanProposalDonasi extends AppCompatActivity {
         //Untuk TV KRITERIA
         TVvalueJumlahAnak = findViewById(R.id.tv_valueforJumlahAnak);
         TVvaluePenghasilanOrtu = findViewById(R.id.tv_valueforPenghasilanOrtu);
-        TVvalueUKT = findViewById(R.id.tv_valueforUKT);
         TVvalueIPK = findViewById(R.id.tv_valueforIPK);
-        TVvalueSemester = findViewById(R.id.tv_valueforSemester);
+        TVvaluePrestasiAkademik = findViewById(R.id.tv_valueforPrestasiAkademik);
+        TVvaluePrestasiNonAkademik = findViewById(R.id.tv_valueforPrestasiNonAkademik);
 
         //Spinner
         spinSemester = findViewById(R.id.semester_spinner);
 
-        spinKategori1 = findViewById(R.id.kategori1_spinner);
-        spinTingkat1 = findViewById(R.id.tingkat1_spinner);
+        spinKategoriAkademik = findViewById(R.id.kategori1_spinner);
+        spinTingkatAkademik = findViewById(R.id.tingkat1_spinner);
 
-        spinKategori2 = findViewById(R.id.kategori2_spinner);
-        spinTingkat2 = findViewById(R.id.tingkat2_spinner);
-
-        spinKategori3 = findViewById(R.id.kategori3_spinner);
-        spinTingkat3 = findViewById(R.id.tingkat3_spinner);
-
-        spinKategori4 = findViewById(R.id.kategori4_spinner);
-        spinTingkat4 = findViewById(R.id.tingkat4_spinner);
-
-        spinKategori5 = findViewById(R.id.kategori5_spinner);
-        spinTingkat5 = findViewById(R.id.tingkat5_spinner);
+        spinKategoriNonAkademik = findViewById(R.id.kategori2_spinner);
+        spinTingkatNonAkademik = findViewById(R.id.tingkat2_spinner);
 
         spinFakultas = findViewById(R.id.fakultas_spinner);
         spinJurusan = findViewById(R.id.jurusan_spinner);
@@ -886,31 +858,6 @@ public class AjukanProposalDonasi extends AppCompatActivity {
             } else if (penghasilanOrtu >= 3000000){
                 setValuePenghasilanOrtu = 0.2;
                 TVvaluePenghasilanOrtu.setText(String.valueOf(setValuePenghasilanOrtu));
-            }
-        } catch (NumberFormatException ex){
-            ex.printStackTrace();
-        }
-    }
-
-    public void UpdateUI_UKT(){
-        getKriteria_UKT = edtUKT.getText().toString();
-        int UKT = Integer.parseInt(getKriteria_UKT);
-        try {
-            if (UKT>=4000000){
-                setValueUKT = 1.0;
-                TVvalueUKT.setText(String.valueOf(setValueUKT));
-            } else if (UKT>=3000000 && UKT<4000000){
-                setValueUKT = 0.8;
-                TVvalueUKT.setText(String.valueOf(setValueUKT));
-            } else if (UKT>=1000000 && UKT<3000000) {
-                setValueUKT = 0.6;
-                TVvalueUKT.setText(String.valueOf(setValueUKT));
-            } else if (UKT>=500000 && UKT<1000000) {
-                setValueUKT = 0.4;
-                TVvalueUKT.setText(String.valueOf(setValueUKT));
-            } else if (UKT<500000) {
-                setValueUKT = 0.2;
-                TVvalueUKT.setText(String.valueOf(setValueUKT));
             }
         } catch (NumberFormatException ex){
             ex.printStackTrace();

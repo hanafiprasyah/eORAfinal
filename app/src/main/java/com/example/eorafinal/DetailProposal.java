@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -26,6 +27,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.daimajia.androidanimations.library.Techniques;
@@ -103,6 +108,23 @@ public class DetailProposal extends AppCompatActivity {
             }
         }
 
+        btnSetuju.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(DetailProposal.this,R.style.ProgressBarMahasiswa);
+                builder.setMessage("Anda yakin akan menyetujui proposal berikut?")
+                        .setCancelable(true)
+                        .setPositiveButton("Y A K I N", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                updateStatusProposal();
+                            }
+                        });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,6 +132,63 @@ public class DetailProposal extends AppCompatActivity {
                 overridePendingTransition(0,R.anim.slide_outta_right);
             }
         });
+    }
+
+    private void updateStatusProposal() {
+        loadings = new ProgressDialog(DetailProposal.this,R.style.ProgressBarMahasiswa);
+        loadings.setMessage("Mengganti status proposal ..");
+        loadings.setCancelable(false);
+        loadings.show();
+
+        AndroidNetworking.post("https://prasyah.000webhostapp.com/gantiStatusDiterima.php")
+                .addBodyParameter("proposal_id",""+TVidProposal)
+                .setTag("Update Data")
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        loadings.dismiss();
+                        Log.d("responEdit",""+response);
+                        try{
+                            Boolean status = response.getBoolean("status");
+                            if(status){
+                                new AlertDialog.Builder(DetailProposal.this)
+                                        .setMessage("Anda sudah merubah status proposalnya.")
+                                        .setTitle("Berhasil")
+                                        .setCancelable(false)
+                                        .setPositiveButton("M E N U  U T A M A", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                Intent i = getIntent();
+                                                setResult(RESULT_OK,i);
+                                                DetailProposal.this.finish();
+                                            }
+                                        })
+                                        .show();
+                            }else{
+                                new AlertDialog.Builder(DetailProposal.this)
+                                        .setMessage("Gagal Mengupdate Status Proposal")
+                                        .setCancelable(false)
+                                        .setPositiveButton("K E M B A L I", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                Intent i = getIntent();
+                                                setResult(RESULT_CANCELED,i);
+                                            }
+                                        })
+                                        .show();
+                            }
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+
+                    }
+                });
     }
 
     private void init() {
