@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -31,6 +33,7 @@ public class Lembarhasilstudi extends AppCompatActivity implements DownloadFile.
     PDFPagerAdapter adapterLHS;
     ProgressBar progressBarLHS;
     ConnectivityManager conMgr;
+    RelativeLayout layoutLHSNotFound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,7 @@ public class Lembarhasilstudi extends AppCompatActivity implements DownloadFile.
 
         tvGeserLayar = findViewById(R.id.tv_slideformoreLHS);
         progressBarLHS = findViewById(R.id.pBarLHS);
+        layoutLHSNotFound = findViewById(R.id.layoutLHS_NotFound);
 
         conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         {
@@ -81,6 +85,10 @@ public class Lembarhasilstudi extends AppCompatActivity implements DownloadFile.
 
     @Override
     public void onFailure(Exception e) {
+        progressBarLHS.getMax();
+        progressBarLHS.setVisibility(View.GONE);
+        tvGeserLayar.setVisibility(View.GONE);
+        layoutLHSNotFound.setVisibility(View.VISIBLE);
     }
 
     @Override

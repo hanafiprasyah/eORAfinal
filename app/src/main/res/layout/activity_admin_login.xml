@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
-    tools:context=".AdminLogin">
+    tools:context=".AdminLogin"
+    android:background="@color/ghostwhite">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarAdminLogin"

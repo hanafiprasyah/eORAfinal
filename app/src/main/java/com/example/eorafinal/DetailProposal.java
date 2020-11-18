@@ -45,10 +45,10 @@ import java.util.Objects;
 
 public class DetailProposal extends AppCompatActivity {
 
-    TextView TVidProposal,back,namaDetailProposal,NIMDetailProposal;
+    TextView TVidProposal,back,namaDetailProposal,NIMDetailProposal,urlLHS,urlKRS,urlUKT,urlPrestasi;
     EditText etNamaAyah,etNamaIbu,etPekerjaanAyah,etPekerjaanIbu,etJumsau,etAnakke,etGajiOrtu,etUKT,etNamaBank,etNorek,etalamatDomisili,etalamatKTP,etIPK,etSemester;
     Button btnSetuju,btnTolak,btnPerbaiki,btnUploadUlang;
-    ImageView fotoMhsDetailProposal;
+    ImageView fotoMhsDetailProposal,ivClickLHS,ivClickKRS,ivClickUKT,ivClickPrestasi;
     ConnectivityManager conMgr;
     private int pStatus = 0;
     private Handler handler = new Handler();
@@ -122,6 +122,58 @@ public class DetailProposal extends AppCompatActivity {
                         });
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
+            }
+        });
+
+        ivClickLHS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String passingURL_LHS = urlLHS.getText().toString();
+                Intent toShowLHSActivity = new Intent(DetailProposal.this,Lembarhasilstudi.class);
+                Bundle urlLHSToLHSactivity = new Bundle();
+                urlLHSToLHSactivity.putString("url_lhs",passingURL_LHS);
+                toShowLHSActivity.putExtras(urlLHSToLHSactivity);
+                startActivity(toShowLHSActivity);
+                overridePendingTransition(R.anim.slide_infrom_right,R.anim.stay);
+            }
+        });
+
+        ivClickKRS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String passingURL_KRS = urlKRS.getText().toString();
+                Intent toShowKRSActivity = new Intent(DetailProposal.this,Karturencanastudi.class);
+                Bundle urlKRSToKRSactivity = new Bundle();
+                urlKRSToKRSactivity.putString("url_krs",passingURL_KRS);
+                toShowKRSActivity.putExtras(urlKRSToKRSactivity);
+                startActivity(toShowKRSActivity);
+                overridePendingTransition(R.anim.slide_infrom_right,R.anim.stay);
+            }
+        });
+
+        ivClickUKT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String passingURL_UKT = urlUKT.getText().toString();
+                Intent toShowUKTActivity = new Intent(DetailProposal.this,Buktiuangkuliah.class);
+                Bundle urlUKTToUKTactivity = new Bundle();
+                urlUKTToUKTactivity.putString("url_ukt",passingURL_UKT);
+                toShowUKTActivity.putExtras(urlUKTToUKTactivity);
+                startActivity(toShowUKTActivity);
+                overridePendingTransition(R.anim.slide_infrom_right,R.anim.stay);
+            }
+        });
+
+        ivClickPrestasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String passingURL_prestasi = urlPrestasi.getText().toString();
+                Intent toShowPrestasiActivity = new Intent(DetailProposal.this,Prestasimahasiswa.class);
+                Bundle urlPrestasiToPrestasiactivity = new Bundle();
+                urlPrestasiToPrestasiactivity.putString("url_fileprestasi",passingURL_prestasi);
+                toShowPrestasiActivity.putExtras(urlPrestasiToPrestasiactivity);
+                startActivity(toShowPrestasiActivity);
+                overridePendingTransition(R.anim.slide_infrom_right,R.anim.stay);
             }
         });
 
@@ -216,6 +268,16 @@ public class DetailProposal extends AppCompatActivity {
         btnTolak = findViewById(R.id.btnTolakProposal_detailProposal);
         btnPerbaiki = findViewById(R.id.btnPerbaikanProposal_detailProposal);
         btnUploadUlang = findViewById(R.id.btnUploadBerkasProposal_detailProposal);
+
+        urlLHS            = findViewById(R.id.url_FileLHSDetailProposal);
+        urlKRS            = findViewById(R.id.url_FileKRSDetailProposal);
+        urlUKT            = findViewById(R.id.url_FileUKTDetailProposal);
+        urlPrestasi       = findViewById(R.id.url_FilePrestasiDetailProposal);
+
+        ivClickLHS               = findViewById(R.id.iv_fileLembarHasilStudiDetailProposal);
+        ivClickKRS               = findViewById(R.id.iv_fileKRSDetailProposal);
+        ivClickUKT               = findViewById(R.id.iv_fileUKTDetailProposal);
+        ivClickPrestasi          = findViewById(R.id.iv_filePrestasiDetailProposal);
     }
 
     void getDataProposalmahasiswa() {
@@ -279,6 +341,10 @@ public class DetailProposal extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 getDataProposalmahasiswa();
+                                getFileLHS();
+                                getFileKRS();
+                                getFileUKT();
+                                getFilePrestasi();
                             }
                         })
                         .show();
@@ -382,6 +448,174 @@ public class DetailProposal extends AppCompatActivity {
         btnTolak.setEnabled(true);
         btnPerbaiki.setEnabled(true);
         btnUploadUlang.setEnabled(true);
+    }
+
+    //GET LHS
+    void getFileLHS(){
+        String idLHS = NIMDetailProposal.getText().toString();
+
+        if (idLHS.equals("")) {
+            FancyToast.makeText(getApplicationContext(),"Server bermasalah", Toast.LENGTH_SHORT, FancyToast.WARNING, R.drawable.ic_errorwhite24, false).show();
+            return;
+        }
+
+        final String urlLHS      = ConfigProfileMahasiswa.URL_GETLHS+idLHS;
+
+        StringRequest loadLHS = new StringRequest(urlLHS, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                showFileLHS(response);
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(DetailProposal.this,"Server Bermasalah",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(loadLHS);
+    }
+    private void showFileLHS(String responseLHS){
+        String urlLHSfix="";
+
+        try {
+            JSONObject jsonObject = new JSONObject(responseLHS);
+            JSONArray result = jsonObject.getJSONArray(ConfigProfileMahasiswa.JSON_ARRAY);
+            JSONObject collegeData = result.getJSONObject(0);
+
+            urlLHSfix = collegeData.getString(ConfigProfileMahasiswa.KEY_URL_LHS);
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
+        urlLHS.setText(""+urlLHSfix);
+    }
+
+    //GET KRS
+    void getFileKRS(){
+        String idKRS = NIMDetailProposal.getText().toString();
+
+        if (idKRS.equals("")) {
+            FancyToast.makeText(getApplicationContext(),"Server bermasalah", Toast.LENGTH_SHORT, FancyToast.WARNING, R.drawable.ic_errorwhite24, false).show();
+            return;
+        }
+
+        final String urlKRS      = ConfigProfileMahasiswa.URL_GETKRS+idKRS;
+
+        StringRequest loadKRS = new StringRequest(urlKRS, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String responseKRS) {
+                showFileKRS(responseKRS);
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(DetailProposal.this,"Server Bermasalah",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(loadKRS);
+    }
+    private void showFileKRS(String responseKRS){
+        String urlKRSfix="";
+
+        try {
+            JSONObject jsonObject = new JSONObject(responseKRS);
+            JSONArray result = jsonObject.getJSONArray(ConfigProfileMahasiswa.JSON_ARRAY);
+            JSONObject collegeData = result.getJSONObject(0);
+
+            urlKRSfix = collegeData.getString(ConfigProfileMahasiswa.KEY_URL_KRS);
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
+        urlKRS.setText(""+urlKRSfix);
+    }
+
+    //GET UKT
+    void getFileUKT(){
+        String idUKT = NIMDetailProposal.getText().toString();
+
+        if (idUKT.equals("")) {
+            FancyToast.makeText(getApplicationContext(),"Server bermasalah", Toast.LENGTH_SHORT, FancyToast.WARNING, R.drawable.ic_errorwhite24, false).show();
+            return;
+        }
+
+        final String urlUKT      = ConfigProfileMahasiswa.URL_GETUKT+idUKT;
+
+        StringRequest loadUKT = new StringRequest(urlUKT, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String responseUKT) {
+                showFileUKT(responseUKT);
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(DetailProposal.this,"Server Bermasalah",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(loadUKT);
+    }
+    private void showFileUKT(String responseUKT){
+        String urlUKTfix="";
+
+        try {
+            JSONObject jsonObject = new JSONObject(responseUKT);
+            JSONArray result = jsonObject.getJSONArray(ConfigProfileMahasiswa.JSON_ARRAY);
+            JSONObject collegeData = result.getJSONObject(0);
+
+            urlUKTfix = collegeData.getString(ConfigProfileMahasiswa.KEY_URL_UKT);
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
+        urlUKT.setText(""+urlUKTfix);
+    }
+
+    //GET PRESTASI
+    void getFilePrestasi(){
+        String idPrestasi = NIMDetailProposal.getText().toString();
+
+        if (idPrestasi.equals("")) {
+            FancyToast.makeText(getApplicationContext(),"Server bermasalah", Toast.LENGTH_SHORT, FancyToast.WARNING, R.drawable.ic_errorwhite24, false).show();
+            return;
+        }
+
+        final String urlPrestasi      = ConfigProfileMahasiswa.URL_GETPRESTASI+idPrestasi;
+
+        StringRequest loadPrestasi = new StringRequest(urlPrestasi, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String responsePrestasi) {
+                showFilePrestasi(responsePrestasi);
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(DetailProposal.this,"Server Bermasalah",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(loadPrestasi);
+    }
+    private void showFilePrestasi(String responsePrestasi){
+        String urlPrestasiFix="";
+
+        try {
+            JSONObject jsonObject = new JSONObject(responsePrestasi);
+            JSONArray result = jsonObject.getJSONArray(ConfigProfileMahasiswa.JSON_ARRAY);
+            JSONObject collegeData = result.getJSONObject(0);
+
+            urlPrestasiFix = collegeData.getString(ConfigProfileMahasiswa.KEY_URL_Prestasi);
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
+        urlPrestasi.setText(""+urlPrestasiFix);
     }
 
     @Override

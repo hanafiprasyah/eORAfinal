@@ -13,6 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -32,6 +33,7 @@ public class Buktiuangkuliah extends AppCompatActivity implements DownloadFile.L
     PDFPagerAdapter adapterUKT;
     ProgressBar progressBarUKT;
     ConnectivityManager conMgr;
+    RelativeLayout layoutUKTnotFound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class Buktiuangkuliah extends AppCompatActivity implements DownloadFile.L
         urlUKT.setText(revURL);
 
         progressBarUKT = findViewById(R.id.pBarUKT);
+        layoutUKTnotFound = findViewById(R.id.layoutUKT_NotFound);
 
         conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         {
@@ -80,6 +83,9 @@ public class Buktiuangkuliah extends AppCompatActivity implements DownloadFile.L
 
     @Override
     public void onFailure(Exception e) {
+        progressBarUKT.getMax();
+        progressBarUKT.setVisibility(View.GONE);
+        layoutUKTnotFound.setVisibility(View.VISIBLE);
     }
 
     @Override

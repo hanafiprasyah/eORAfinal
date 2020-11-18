@@ -12,6 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -31,6 +32,7 @@ public class Karturencanastudi extends AppCompatActivity implements DownloadFile
     PDFPagerAdapter adapterKRS;
     ProgressBar progressBarKRS;
     ConnectivityManager conMgr;
+    RelativeLayout layoutKRSNotFound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class Karturencanastudi extends AppCompatActivity implements DownloadFile
         urlKRS.setText(revURL);
 
         progressBarKRS = findViewById(R.id.pBarKRS);
+        layoutKRSNotFound = findViewById(R.id.layoutKRS_NotFound);
 
         conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         {
@@ -79,6 +82,9 @@ public class Karturencanastudi extends AppCompatActivity implements DownloadFile
 
     @Override
     public void onFailure(Exception e) {
+        progressBarKRS.getMax();
+        progressBarKRS.setVisibility(View.GONE);
+        layoutKRSNotFound.setVisibility(View.VISIBLE);
     }
 
     @Override
