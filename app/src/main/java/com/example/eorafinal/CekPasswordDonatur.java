@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -35,6 +37,9 @@ public class CekPasswordDonatur extends AppCompatActivity {
 
     private TextView regIdDonaturKelola,passwordUser,back;
 
+    private ClipboardManager mClipManager;
+    private ClipData myClip;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +53,21 @@ public class CekPasswordDonatur extends AppCompatActivity {
         regIdDonaturKelola = findViewById(R.id.registerIDDonatur);
         regIdDonaturKelola.setText(revIDRegKelolaDonatur);
 
+        mClipManager = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
         passwordUser = findViewById(R.id.passwordDonatur);
+        passwordUser.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                String text;
+                text = passwordUser.getText().toString();
+                myClip = ClipData.newPlainText("text",text);
+                mClipManager.setPrimaryClip(myClip);
+
+                Toast.makeText(getApplicationContext(), "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+
         back = findViewById(R.id.btnBack_cekpassword);
         back.setOnClickListener(new View.OnClickListener() {
             @Override

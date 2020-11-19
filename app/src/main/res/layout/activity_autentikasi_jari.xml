@@ -57,6 +57,9 @@
         android:lines="6"
         android:textAllCaps="false"
         android:textStyle="normal"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:background="@drawable/et_bgadmin"
+        android:clickable="true"
+        android:focusable="true"/>
 
 </RelativeLayout>

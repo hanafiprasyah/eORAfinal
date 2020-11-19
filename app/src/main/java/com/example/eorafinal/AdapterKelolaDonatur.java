@@ -47,7 +47,14 @@ class AdapterKelolaDonatur extends RecyclerView.Adapter<AdapterKelolaDonatur.MyV
         holder.btnHapusDataDonatur.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(mContext,HapusDonatur.class);
+                String passRegIdDonatur = holder.idReg_Donatur.getText().toString();
+                Bundle idRegDonaturBundle = new Bundle();
+                idRegDonaturBundle.putString("id_reg_donatur",passRegIdDonatur);
+                i.putExtra("id_reg_donatur",mKelolaDonaturs.get(position).getId_reg_donatur());
+                i.putExtras(idRegDonaturBundle);
+                ((KelolaDonatur)mContext).startActivityForResult(i,5);
+                ((KelolaDonatur)mContext).overridePendingTransition(R.anim.fade_in,R.anim.stay);
             }
         });
 
