@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KelolaPengguna"
+    android:orientation="vertical"
+    android:background="@color/ghostwhite">
+
+    <RelativeLayout
+        android:id="@+id/LayoutButtonKelolaMahasiswa"
+        android:layout_weight=".5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/btnKelolaMahasiswa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/et_bgmhs"
+            android:text="KELOLA MAHASISWA"
+            android:textSize="25sp"
+            android:lines="2"
+            android:textColor="@color/ghostwhite"
+            android:clickable="true"
+            android:focusable="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/LayoutButtonKelolaDonatur"
+        android:layout_weight=".5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/btnKelolaDonatur"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/et_bgdonatur"
+            android:text="KELOLA DONATUR"
+            android:textSize="25sp"
+            android:lines="2"
+            android:textColor="@color/ghostwhite"
+            android:clickable="true"
+            android:focusable="true"/>
+    </RelativeLayout>
+
+</LinearLayout>

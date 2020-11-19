@@ -105,19 +105,19 @@
                     android:text="Kelola Proposal"/>
 
                 <ImageButton
-                    android:id="@+id/kelola_donasi"
+                    android:id="@+id/distribusi_donasiUmum"
                     android:src="@drawable/money"
                     android:layout_width="140dp"
                     android:scaleType="centerCrop"
                     android:layout_height="140dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/et_bgadmin"
-                    android:contentDescription="Kelola Donasi" />
+                    android:contentDescription="Distribusi Donasi Umum" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kelola Donasi"/>
+                    android:text="Distribusi Donasi Umum"/>
             </LinearLayout>
 
             <LinearLayout

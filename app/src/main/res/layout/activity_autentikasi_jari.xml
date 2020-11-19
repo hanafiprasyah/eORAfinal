@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CekPasswordDonatur">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarLihatPasswordDonatur"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        app:layout_scrollFlags="scroll|enterAlways">
+        <TextView
+            android:id="@+id/btnBack_cekpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/bg_btnripple"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:drawableStart="@drawable/ic_back_ios"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="5dp"
+            android:clickable="true"
+            android:focusable="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LIHAT PASSWORD DONATUR"
+            android:textAllCaps="true"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textAlignment="textStart"/>
+        <TextView
+            android:id="@+id/registerIDDonatur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Memuat .."
+            android:visibility="gone"
+            />
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/passwordDonatur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="********"
+        android:textSize="24sp"
+        android:lines="6"
+        android:textAllCaps="false"
+        android:textStyle="normal"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>

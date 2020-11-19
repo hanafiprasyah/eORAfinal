@@ -89,7 +89,7 @@ public class AdminLogin extends AppCompatActivity {
                 Intent i = new Intent(AdminLogin.this,MainActivity.class);
                 startActivity(i);
                 finishAfterTransition();
-                overridePendingTransition(R.anim.stay,R.anim.splash_fade_out);
+                overridePendingTransition(R.anim.fade_in,R.anim.stay);
             }
         });
     }
@@ -162,6 +162,6 @@ public class AdminLogin extends AppCompatActivity {
         Intent i = new Intent(AdminLogin.this,MainActivity.class);
         startActivity(i);
         finishAfterTransition();
-        overridePendingTransition(R.anim.stay,R.anim.splash_fade_out);
+        overridePendingTransition(R.anim.fade_in,R.anim.stay);
     }
 }

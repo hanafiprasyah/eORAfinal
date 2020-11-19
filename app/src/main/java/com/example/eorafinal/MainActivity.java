@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     FancyShowCaseView fancyShowCaseView;
 
     //kontenDelay
-    TextView visionTitle,visionText,greeting1,greeting2,titlePanduan,footerText;
+    TextView visionTitle,visionText,greeting1,greeting2,titlePanduan,footerText,quest1,quest2,quest3;
     ImageView visionSeparator,vision2,panduanSeparator,adminView;
     ImageSlider imageSlider;
 
@@ -161,6 +161,14 @@ public class MainActivity extends AppCompatActivity {
         Animation animMenu = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.item_animation_falldown);
         menuEORA.setAnimation(animMenu);
         menuEORA.setVisibility(View.VISIBLE);
+
+        quest1 = findViewById(R.id.textQuest1);
+        quest2 = findViewById(R.id.textQuest2);
+        quest3 = findViewById(R.id.textQuest3);
+        Typeface customQuest = Typeface.createFromAsset(getAssets(),"font/intimacy.ttf");
+        quest1.setTypeface(customQuest);
+        quest2.setTypeface(customQuest);
+        quest3.setTypeface(customQuest);
 
         FABlogin.setOnClickListener(new View.OnClickListener() {
             @Override

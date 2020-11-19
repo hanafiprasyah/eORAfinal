@@ -79,6 +79,15 @@ public class AdminHome extends AppCompatActivity {
             }
         });
 
+        IBkelolaPengguna.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a = new Intent(AdminHome.this,KelolaPengguna.class);
+                startActivity(a);
+                overridePendingTransition(R.anim.fade_in,R.anim.stay);
+            }
+        });
+
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -147,7 +156,7 @@ public class AdminHome extends AppCompatActivity {
 
     private void init() {
         IBkelolaProposal = findViewById(R.id.kelola_proposalMahasiswa);
-        IBkelolaDonasi = findViewById(R.id.kelola_donasi);
+        IBkelolaDonasi = findViewById(R.id.distribusi_donasiUmum);
         IBkelolaPengguna = findViewById(R.id.kelola_pengguna);
         IBlaporanDonasi = findViewById(R.id.kelola_laporanDonasi);
     }

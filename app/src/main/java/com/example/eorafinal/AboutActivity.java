@@ -72,7 +72,7 @@ public class AboutActivity extends AppCompatActivity {
                 Intent o = new Intent(AboutActivity.this,MainActivity.class);
                 startActivity(o);
                 finishAfterTransition();
-                overridePendingTransition(R.anim.falldown,R.anim.stay);
+                overridePendingTransition(R.anim.fade_in,R.anim.stay);
             }
         });
     }
@@ -109,6 +109,6 @@ public class AboutActivity extends AppCompatActivity {
         Intent ob = new Intent(AboutActivity.this,MainActivity.class);
         startActivity(ob);
         finishAfterTransition();
-        overridePendingTransition(R.anim.falldown,R.anim.stay);
+        overridePendingTransition(R.anim.fade_in,R.anim.stay);
     }
 }

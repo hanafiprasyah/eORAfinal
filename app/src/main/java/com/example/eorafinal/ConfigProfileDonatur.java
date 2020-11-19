@@ -4,6 +4,7 @@ class ConfigProfileDonatur {
     public static final String DATA_URL                = "https://prasyah.000webhostapp.com/registerdonatur/getDataForEdit.php?id_reg_donatur=";
     public static final String DATA_DONASI_UMUM        = "https://prasyah.000webhostapp.com/DonaturHome/getDataDonaturUmum.php?id_reg_donatur=";
     public static final String URL_GETFOTODONATUR      = "https://prasyah.000webhostapp.com/DonaturHome/getFotoProfil.php?id_reg_donatur=";
+    public static final String URL_GETPASSWORD         = "https://prasyah.000webhostapp.com/DonaturHome/getPassword.php?id_reg_donatur=";
     public static final String URL_GETNAKER            = "https://prasyah.000webhostapp.com/DonaturHome/getNaKer.php?id_reg_donatur=";
     public static final String URL_GET_TTL_EMAIL_NOTEL = "https://prasyah.000webhostapp.com/DonaturHome/getTTLemailNotel.php?id_reg_donatur=";
     public static final String URL_GET_EMAIL_NOTEL     = "https://prasyah.000webhostapp.com/DonaturHome/getEmailNotel.php?id_reg_donatur=";
@@ -18,4 +19,5 @@ class ConfigProfileDonatur {
     public static final String KEY_TANGGAL_LAHIR       = "tanggal_lahir";
     public static final String KEY_PEKERJAAN           = "pekerjaan_donatur";
     public static final String KEY_JUMLAHDONASI        = "jumlah_donasi";
+    public static final String KEY_PASSWORD            = "password";
 }

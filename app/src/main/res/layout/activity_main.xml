@@ -272,6 +272,69 @@
                     android:id="@+id/separatorMain7"
                     style="@style/Batas"
                     android:layout_marginTop="-10dp"
+                    android:layout_marginBottom="20dp"/>
+
+                <TextView
+                    android:id="@+id/textQuest1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lines="6"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Sedekah tidak membuat kita miskin. Walau bapak/ibu hanya mengeluarkan sedikit uang dari harta yang dimiliki, itu dapat memberikan motivasi semangat yang kuat bagi mahasiswa berlatar belakang ekonomi rendah."/>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    app:lottie_fileName="collectingmoney.json"
+                    app:lottie_loop="true"
+                    app:lottie_autoPlay="true"
+                    android:layout_marginBottom="10dp"/>
+
+                <View
+                    android:id="@+id/separatorMain8"
+                    style="@style/Batas"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"/>
+
+                <TextView
+                    android:id="@+id/textQuest2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lines="2"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Kurangnya media dapat menjadi hambatan dalam menyalurkan donasi."/>
+
+                <TextView
+                    android:id="@+id/textQuest3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lines="4"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Lalu, E-ORA hadir sebagai penghubung antara donatur dengan mahasiswa berlatar belakang ekonomi lemah."/>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="-10dp"
+                    app:lottie_fileName="adapterbridge.json"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_repeatMode="restart"/>
+
+                <View
+                    android:id="@+id/separatorMain9"
+                    style="@style/Batas"
+                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="50dp"/>
 
                 <TextView
