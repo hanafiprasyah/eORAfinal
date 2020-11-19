@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/ghostwhite"
+    tools:context=".KelolaDonatur">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarKelolaDonatur"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_scrollFlags="scroll|enterAlways"
+        android:background="@color/ghostwhite">
+        <TextView
+            android:id="@+id/btnBack_kelolaDonatur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/bg_btnripple"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:drawableStart="@drawable/ic_back_ios"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="5dp"
+            android:clickable="true"
+            android:focusable="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KELOLA DONATUR"
+            android:textAllCaps="true"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textAlignment="textStart"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerviewKelolaDonatur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:background="@color/ghostwhite"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <ProgressBar
+            android:id="@+id/progressBarKelolaDonatur"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_marginTop="20dp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/progressbar_custom_lihat_mahasiswa"
+            android:secondaryProgress="0"
+            android:layout_centerInParent="true"
+            android:visibility="invisible"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/infoLoadingData_kelolaDonatur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Memuat data ... "
+        android:gravity="center"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
