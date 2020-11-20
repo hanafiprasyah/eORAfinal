@@ -140,7 +140,7 @@ public class GreetingDonasiKhusus extends AppCompatActivity {
             return;
         }
 
-        loadings = new ProgressDialog(this,R.style.ProgressBarMahasiswa);
+        loadings = new ProgressDialog(this,R.style.ProgressBarDonatur);
         loadings.setCancelable(false);
         loadings.setMessage("Mohon tunggu ..");
         loadings.show();

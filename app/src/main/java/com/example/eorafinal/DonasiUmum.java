@@ -1,7 +1,5 @@
 package com.example.eorafinal;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -10,7 +8,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -22,45 +19,40 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.airbnb.lottie.LottieAnimationView;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.daimajia.androidanimations.library.Techniques;
-import com.daimajia.androidanimations.library.YoYo;
 import com.rengwuxian.materialedittext.MaterialEditText;
-import com.shuhart.stepview.StepView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 import java.util.Objects;
-
-import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt;
 
 public class DonasiUmum extends AppCompatActivity {
 
-    TextView btnBack,idRegDonaturUmum,namaDonaturUmum,jenisDonasi,statusDonasiUmum,totalDonasi;
+    TextView btnBack,idRegDonaturUmum,namaDonaturUmum,jenisDonasi,statusDonasiUmum,totalDonasi,currentDate;
     MaterialEditText ETuangDonasi;
     ConnectivityManager conMgr;
     private ProgressDialog loading;
     Button kirimUang;
-    String idRegGet,namaDonaturGet,jenisDonasiGet,jumlahUangGet,statusDonasiGet;
+    String idRegGet,namaDonaturGet,jenisDonasiGet,jumlahUangGet,statusDonasiGet,tanggaldonasiget;
 
     private static final String URL_PRODUCTS = "https://prasyah.000webhostapp.com/DonaturHome/getTotalDonasi.php";
 
@@ -81,12 +73,20 @@ public class DonasiUmum extends AppCompatActivity {
         totalDonasi = findViewById(R.id.tv_totalDonasi);
         loadProducts();
 
+        currentDate = findViewById(R.id.tvCurrentDate);
+        //getDateAndTime
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd",Locale.US);
+        String date = dateFormat.format(calendar.getTime());
+        currentDate.setText(date);
+
         conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         {
             if (conMgr.getActiveNetworkInfo() != null
                     && conMgr.getActiveNetworkInfo().isAvailable()
                     && conMgr.getActiveNetworkInfo().isConnected()) {
                 getDataDonatur();
+
             } else {
                 Intent i = new Intent(DonasiUmum.this,NetworkErrorActivity.class);
                 startActivity(i);
@@ -112,6 +112,7 @@ public class DonasiUmum extends AppCompatActivity {
                 jenisDonasiGet = jenisDonasi.getText().toString();
                 jumlahUangGet = ETuangDonasi.getText().toString();
                 statusDonasiGet = statusDonasiUmum.getText().toString();
+                tanggaldonasiget = currentDate.getText().toString();
 
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -181,6 +182,7 @@ public class DonasiUmum extends AppCompatActivity {
                 .addBodyParameter("jenis_donasi",""+jenisDonasiGet)
                 .addBodyParameter("jumlah_donasi",""+jumlahUangGet)
                 .addBodyParameter("status_donasi",""+statusDonasiGet)
+                .addBodyParameter("tanggal_donasi",""+tanggaldonasiget)
                 .setTag("Insert Data")
                 .setPriority(Priority.MEDIUM)
                 .build()

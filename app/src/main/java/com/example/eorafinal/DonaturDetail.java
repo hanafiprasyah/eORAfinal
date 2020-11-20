@@ -88,7 +88,7 @@ public class DonaturDetail extends AppCompatActivity {
         waOrtuAsuh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "https://api.whatsapp.com/send?phone=" + "+62"+notelDetail.getText();
+                String url = "https://api.whatsapp.com/send?phone=" + ""+notelDetail.getText();
                 Intent wa = new Intent(Intent.ACTION_VIEW);
                 wa.setData(Uri.parse(url));
                 startActivity(wa);
